@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     "Scopri come ordinare fiori online con consegna a domicilio a Milano. Scegli il bouquet, inserisci i dati del destinatario e completa il pagamento in modo semplice e sicuro.",
   alternates: {
     canonical: "/come-funziona",
+    languages: { "it-IT": "/come-funziona", en: "/en/come-funziona", ru: "/ru/come-funziona", "x-default": "/come-funziona" },
   },
 };
 

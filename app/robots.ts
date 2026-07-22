@@ -1,4 +1,14 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
+
 export default function robots(): MetadataRoute.Robots {
-  return { rules: { userAgent: "*", allow: "/", disallow: ["/checkout", "/admin", "/api"] }, sitemap: "https://consegnafiorimilano.it/sitemap.xml", host: "https://consegnafiorimilano.it" };
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/checkout", "/admin", "/api", "/tracking"],
+    },
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
+  };
 }

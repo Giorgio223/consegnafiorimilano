@@ -266,6 +266,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="border-t border-black/10 bg-neutral-50 py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#8c6f5a]">Servizi a Milano</p>
+          <h2 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">Consegna fiori per ogni esigenza</h2>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-neutral-600">Scopri le pagine dedicate alla consegna in giornata, agli ordini online H24, alle richieste urgenti e alla copertura di Milano e provincia.</p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link href="/servizi/consegna-fiori-in-giornata-milano" className="rounded-full border border-black/15 bg-white px-5 py-3 font-semibold">Consegna in giornata</Link>
+            <Link href="/servizi/fiorista-milano" className="rounded-full border border-black/15 bg-white px-5 py-3 font-semibold">Fiorista Milano</Link>
+            <Link href="/servizi/fiori-urgenti-milano" className="rounded-full border border-black/15 bg-white px-5 py-3 font-semibold">Fiori urgenti</Link>
+            <Link href="/servizi/fiori-express-milano" className="rounded-full border border-black/15 bg-white px-5 py-3 font-semibold">Fiori express</Link>
+            <Link href="/servizi/consegna-fiori-h24-milano" className="rounded-full border border-black/15 bg-white px-5 py-3 font-semibold">Ordini online H24</Link>
+            <Link href="/servizi/consegna-fiori-provincia-milano" className="rounded-full border border-black/15 bg-white px-5 py-3 font-semibold">Milano e provincia</Link>
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-black text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4">
           <div>
@@ -299,6 +315,8 @@ export default function Home() {
                 Consegna fiori Milano
               </Link>
               <Link href="/come-funziona">Come funziona</Link>
+              <Link href="/servizi/consegna-fiori-in-giornata-milano">Consegna in giornata</Link>
+              <Link href="/servizi/fiorista-milano">Fiorista Milano</Link>
             </div>
           </div>
 

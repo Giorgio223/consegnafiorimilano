@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     "Scopri bouquet di girasoli freschi e luminosi con consegna a domicilio a Milano. Ordina online composizioni solari per compleanni e occasioni speciali.",
   alternates: {
     canonical: "/fiori/girasoli",
+    languages: { "it-IT": "/fiori/girasoli", en: "/en/fiori/girasoli", ru: "/ru/fiori/girasoli", "x-default": "/fiori/girasoli" },
   },
 };
 

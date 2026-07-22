@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     "Scopri rose rosse, rose rosa e bouquet romantici con consegna a domicilio a Milano. Ordina online le tue rose preferite.",
   alternates: {
     canonical: "/fiori/rose",
+    languages: { "it-IT": "/fiori/rose", en: "/en/fiori/rose", ru: "/ru/fiori/rose", "x-default": "/fiori/rose" },
   },
 };
 

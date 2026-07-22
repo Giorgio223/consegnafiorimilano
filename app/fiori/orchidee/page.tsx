@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     "Scopri orchidee eleganti e composizioni floreali raffinate con consegna a domicilio a Milano. Ordina online orchidee per regali e occasioni speciali.",
   alternates: {
     canonical: "/fiori/orchidee",
+    languages: { "it-IT": "/fiori/orchidee", en: "/en/fiori/orchidee", ru: "/ru/fiori/orchidee", "x-default": "/fiori/orchidee" },
   },
 };
 

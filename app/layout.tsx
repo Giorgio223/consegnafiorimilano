@@ -1,43 +1,43 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import WhatsAppShare from "@/components/WhatsAppShare";
-
-const siteUrl = "https://consegnafiorimilano.it";
+import { SEO_KEYWORDS, SITE_NAME, SITE_URL, WHATSAPP_NUMBER, BUSINESS_EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Consegna Fiori Milano | Fiori a Domicilio e in Giornata",
     template: "%s | Consegna Fiori Milano",
   },
   description:
-    "Consegna fiori a Milano e fiori a domicilio: bouquet, rose e composizioni floreali ordinabili online. Scopri il servizio di consegna fiori a Milano anche per regali e occasioni speciali.",
-  keywords: [
-    "consegna fiori Milano",
-    "consegna fiori in giornata Milano",
-    "fiori Milano",
-    "fiori a Milano",
-    "consegna fiori a domicilio Milano",
-    "fiori a domicilio Milano",
-    "bouquet Milano",
-    "fioraio online Milano",
-  ],
-  applicationName: "Consegna Fiori Milano",
-  alternates: { canonical: "/" },
+    "Consegna fiori a Milano: bouquet, rose e composizioni floreali con ordine online, consegna a domicilio e richieste in giornata secondo disponibilità.",
+  keywords: SEO_KEYWORDS,
+  applicationName: SITE_NAME,
+  category: "flower delivery",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "it-IT": "/",
+      "en": "/en",
+      "ru": "/ru",
+      "x-default": "/",
+    },
+  },
   openGraph: {
     title: "Consegna Fiori Milano | Fiori a Domicilio",
-    description: "Bouquet e fiori a Milano con consegna a domicilio.",
-    url: siteUrl,
-    siteName: "Consegna Fiori Milano",
+    description: "Bouquet e fiori freschi con consegna a domicilio a Milano.",
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: "it_IT",
+    alternateLocale: ["en_GB", "ru_RU"],
     type: "website",
-    images: [{ url: "/images/logo.png", alt: "Consegna Fiori Milano" }],
+    images: [{ url: "/images/hero-home.jpg", width: 1200, height: 1500, alt: "Bouquet di fiori freschi con consegna a Milano" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Consegna Fiori Milano",
+    title: SITE_NAME,
     description: "Ordina fiori online con consegna a domicilio a Milano.",
-    images: ["/images/logo.png"],
+    images: ["/images/hero-home.jpg"],
   },
   robots: {
     index: true,
@@ -58,18 +58,27 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@graph": [
       {
         "@type": "WebSite",
-        name: "Consegna Fiori Milano",
-        url: siteUrl,
-        inLanguage: "it-IT",
+        "@id": `${SITE_URL}/#website`,
+        name: SITE_NAME,
+        url: SITE_URL,
+        inLanguage: ["it-IT", "en", "ru"],
       },
       {
-        "@type": "Florist",
-        name: "Consegna Fiori Milano",
-        url: siteUrl,
-        image: `${siteUrl}/images/logo.png`,
-        telephone: "+39 379 371 8598",
-        areaServed: { "@type": "City", name: "Milano" },
+        "@type": ["Florist", "LocalBusiness"],
+        "@id": `${SITE_URL}/#business`,
+        name: SITE_NAME,
+        url: SITE_URL,
+        image: `${SITE_URL}/images/logo.png`,
+        logo: `${SITE_URL}/images/logo.png`,
+        telephone: WHATSAPP_NUMBER,
+        email: BUSINESS_EMAIL,
+        areaServed: [
+          { "@type": "City", name: "Milano" },
+          { "@type": "AdministrativeArea", name: "Città metropolitana di Milano" },
+        ],
         priceRange: "€€",
+        currenciesAccepted: "EUR",
+        paymentAccepted: "Credit Card, Apple Pay, Google Pay",
       },
     ],
   };

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     "Scopri bouquet di tulipani colorati, rosa e bianchi con consegna a domicilio a Milano. Ordina online i tuoi tulipani preferiti.",
   alternates: {
     canonical: "/fiori/tulipani",
+    languages: { "it-IT": "/fiori/tulipani", en: "/en/fiori/tulipani", ru: "/ru/fiori/tulipani", "x-default": "/fiori/tulipani" },
   },
 };
 

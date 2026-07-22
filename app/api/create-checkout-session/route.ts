@@ -98,6 +98,8 @@ export async function POST(request: Request) {
     add(params, "metadata[courier_notes]", body.notes?.slice(0, 450));
     add(params, "metadata[customer_name]", body.customerName);
     add(params, "metadata[customer_email]", body.customerEmail);
+    add(params, "metadata[tracking_status]", "received");
+    add(params, "metadata[tracking_updated_at]", new Date().toISOString());
 
     const session = await stripeRequest<StripeCreateResponse>("/checkout/sessions", {
       method: "POST",
