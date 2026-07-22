@@ -1,0 +1,66 @@
+TUTTE LE FOTO DEL SITO SONO IN QUESTA CARTELLA.
+
+PER SOSTITUIRE UNA FOTO:
+1. Prepara la nuova immagine in JPG.
+2. Rinominala ESATTAMENTE come il file che vuoi sostituire.
+3. Copiala in questa cartella e conferma la sostituzione.
+4. Non devi modificare il codice.
+
+Consigli: 1400x1000 px o superiore, immagini compresse, stesso nome ed estensione .jpg.
+Il logo e' logo.png.
+
+ELENCO FILE USATI DAL SITO:
+12-rose-rosse-premium.jpg
+24-rose-rosse.jpg
+bouquet-amore-milano.jpg
+bouquet-anniversario.jpg
+bouquet-armonia.jpg
+bouquet-auguri.jpg
+bouquet-bianco.jpg
+bouquet-buongiorno.jpg
+bouquet-colorato.jpg
+bouquet-compleanno-felice.jpg
+bouquet-congratulazioni.jpg
+bouquet-cuore-felice.jpg
+bouquet-delicato.jpg
+bouquet-dolce-sorpresa.jpg
+bouquet-eleganza-bianca.jpg
+bouquet-eleganza.jpg
+bouquet-festa-della-donna.jpg
+bouquet-festa.jpg
+bouquet-girasoli-premium.jpg
+bouquet-grande-emozione.jpg
+bouquet-grazie.jpg
+bouquet-luce.jpg
+bouquet-luxury-milano.jpg
+bouquet-mamma.jpg
+bouquet-milano-chic.jpg
+bouquet-passione.jpg
+bouquet-peonie-premium.jpg
+bouquet-piccolo-pensiero.jpg
+bouquet-primavera.jpg
+bouquet-romantico.jpg
+bouquet-rosa-cipria.jpg
+bouquet-rose-romantico.jpg
+bouquet-san-valentino.jpg
+bouquet-sera-speciale.jpg
+bouquet-sogno-rosa.jpg
+bouquet-sole-milano.jpg
+bouquet-tulipani-premium.jpg
+come-funziona.jpg
+composizione-orchidee.jpg
+consegna-fiori-milano.jpg
+girasoli-fiori-colorati.jpg
+girasoli-milano.jpg
+hero-home.jpg
+orchidea-bianca-elegance.jpg
+orchidea-luxury-milano.jpg
+orchidea-rosa-premium.jpg
+peonie-bianche.jpg
+peonie-romantiche.jpg
+peonie-rosa.jpg
+rose-rosa-elegance.jpg
+rose-rosse-premium.jpg
+tulipani-bianchi.jpg
+tulipani-colorati.jpg
+tulipani-rosa.jpg
