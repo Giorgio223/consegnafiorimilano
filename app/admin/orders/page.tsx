@@ -58,7 +58,7 @@ export default async function AdminOrdersPage() {
                 <div className="mt-6 grid gap-5 border-t border-black/10 pt-6 md:grid-cols-2 lg:grid-cols-4">
                   <div><p className="text-xs font-bold uppercase tracking-wider text-neutral-500">Prodotto</p><p className="mt-2">{m.product_name || "—"}</p><p className="text-neutral-600">{m.size || "—"} · Quantità {m.quantity || "—"}</p></div>
                   <div><p className="text-xs font-bold uppercase tracking-wider text-neutral-500">Destinatario</p><p className="mt-2">{m.recipient_name || "—"}</p><p className="text-neutral-600">{m.recipient_phone || "—"}</p></div>
-                  <div><p className="text-xs font-bold uppercase tracking-wider text-neutral-500">Consegna</p><p className="mt-2">{m.delivery_date || "—"}</p><p className="text-neutral-600">{m.address || "—"}, {m.postal_code || ""} {m.city || ""}</p></div>
+                  <div><p className="text-xs font-bold uppercase tracking-wider text-neutral-500">Consegna</p><p className="mt-2">{m.delivery_date || "—"} · {m.delivery_slot || "Fascia non indicata"}</p><p className="text-neutral-600">{m.address || "—"}, {m.postal_code || ""} {m.city || ""}</p></div>
                   <div><p className="text-xs font-bold uppercase tracking-wider text-neutral-500">Cliente</p><p className="mt-2">{m.customer_name || session.customer_details?.name || "—"}</p><p className="break-all text-neutral-600">{m.customer_email || session.customer_details?.email || "—"}</p></div>
                 </div>
 

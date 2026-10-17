@@ -44,6 +44,7 @@ export default function ConsegnaFioriMilanoPage() {
         }}
       />
 
+      <section className="mx-auto max-w-7xl px-6 pt-10"><div className="rounded-2xl border border-black/10 bg-neutral-50 p-6"><h2 className="text-2xl font-bold">Orari di consegna fiori a Milano</h2><p className="mt-3 leading-7 text-neutral-700">Durante l’ordine puoi scegliere la fascia oraria di consegna: dalle 09:00 alle 15:00, dalle 15:00 alle 20:00 oppure dalle 20:00 alle 23:00. La consegna serale dalle 20:00 alle 23:00 prevede un supplemento di 10 € oltre alla tariffa di consegna standard. La consegna in giornata dipende dalla disponibilità.</p><Link href="/bouquet" className="mt-4 inline-block font-semibold underline underline-offset-4">Scegli il tuo bouquet</Link></div></section>
       <section className="border-b border-black/10">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-2 lg:items-center">
           <div>

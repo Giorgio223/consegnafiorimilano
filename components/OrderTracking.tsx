@@ -40,7 +40,7 @@ export default function OrderTracking({ session, locale = "it" }: { session: Str
           </div>
           <div className="rounded-2xl bg-neutral-50 p-5">
             <p className="text-xs font-bold uppercase tracking-wider text-neutral-500">{deliveryLabel}</p>
-            <p className="mt-2 font-semibold">{metadata.delivery_date || "—"}</p>
+            <p className="mt-2 font-semibold">{metadata.delivery_date || "—"} · {metadata.delivery_slot || "—"}</p>
             <p className="mt-1 text-sm text-neutral-600">{metadata.address || ""} {metadata.postal_code || ""}</p>
           </div>
           <div className="rounded-2xl bg-neutral-50 p-5">

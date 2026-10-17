@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { FormEvent, Suspense, useMemo, useState } from "react";
 import Header from "@/components/Header";
+import { DELIVERY_SLOTS, type DeliverySlot } from "@/data/delivery-slots";
 import { products } from "@/data/products";
 import { DELIVERY_FEE, formatEur, getSizePrices, isProductSize, type ProductSize } from "@/data/pricing";
 
@@ -18,7 +19,9 @@ function CheckoutContent() {
   const product = useMemo(() => products.find((item) => item.slug === productSlug), [productSlug]);
   const unitPrice = product ? getSizePrices(product.price)[size] : 0;
   const productsTotal = unitPrice * quantity;
-  const totalPrice = productsTotal + DELIVERY_FEE;
+  const [deliverySlot, setDeliverySlot] = useState<DeliverySlot>("afternoon");
+  const deliverySurcharge = DELIVERY_SLOTS[deliverySlot].surcharge;
+  const totalPrice = productsTotal + DELIVERY_FEE + deliverySurcharge;
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -36,7 +39,7 @@ function CheckoutContent() {
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...payload, productSlug: product.slug, size, quantity }),
+        body: JSON.stringify({ ...payload, deliverySlot, productSlug: product.slug, size, quantity }),
       });
       const data = (await response.json()) as { url?: string; error?: string };
       if (!response.ok || !data.url) throw new Error(data.error || "Impossibile avviare il pagamento");
@@ -87,6 +90,7 @@ function CheckoutContent() {
               <p className="text-sm font-bold text-[#8c6f5a]">03</p><h2 className="mt-3 text-2xl font-bold">Consegna e messaggio</h2>
               <div className="mt-7 space-y-5">
                 <div><label htmlFor="deliveryDate" className="mb-2 block text-sm font-semibold">Data di consegna *</label><input id="deliveryDate" name="deliveryDate" type="date" min={new Date().toISOString().slice(0, 10)} required className={inputClass} /></div>
+                <fieldset><legend className="mb-3 block text-sm font-semibold">Fascia oraria di consegna *</legend><div className="grid gap-3">{(Object.entries(DELIVERY_SLOTS) as [DeliverySlot, (typeof DELIVERY_SLOTS)[DeliverySlot]][]).map(([key, slot]) => <label key={key} className={`flex cursor-pointer items-center justify-between rounded-2xl border p-4 ${deliverySlot === key ? "border-black bg-neutral-50" : "border-black/15"}`}><span className="flex items-center gap-3"><input type="radio" name="deliverySlot" value={key} checked={deliverySlot === key} onChange={() => setDeliverySlot(key)} required /><span>{slot.label}</span></span><span className="font-semibold">{slot.surcharge ? `+${formatEur(slot.surcharge)}` : "Nessun supplemento"}</span></label>)}</div><p className="mt-2 text-sm text-neutral-500">La fascia oraria selezionata sarà riportata nella conferma d’ordine.</p></fieldset>
                 <div><label htmlFor="message" className="mb-2 block text-sm font-semibold">Messaggio sul biglietto</label><textarea id="message" name="message" rows={5} maxLength={450} placeholder="Scrivi il tuo messaggio..." className={`${inputClass} resize-none`} /></div>
                 <div><label htmlFor="notes" className="mb-2 block text-sm font-semibold">Note per il corriere</label><textarea id="notes" name="notes" rows={3} maxLength={450} placeholder="Scala, piano o altre indicazioni..." className={`${inputClass} resize-none`} /></div>
               </div>
@@ -115,6 +119,7 @@ function CheckoutContent() {
               <div className="flex justify-between gap-4 text-neutral-600"><span>Quantità</span><span>{quantity}</span></div>
               <div className="flex justify-between gap-4 text-neutral-600"><span>Subtotale</span><span>{formatEur(productsTotal)}</span></div>
               <div className="flex justify-between gap-4 text-neutral-600"><span>Consegna</span><span>{formatEur(DELIVERY_FEE)}</span></div>
+              <div className="flex justify-between gap-4 text-neutral-600"><span>Fascia {DELIVERY_SLOTS[deliverySlot].label}</span><span>{formatEur(deliverySurcharge)}</span></div>
             </div>
             <div className="mt-6 flex justify-between border-t border-black/10 pt-6 text-xl font-bold"><span>Totale</span><span>{formatEur(totalPrice)}</span></div>
             <button type="submit" form="checkout-form" disabled={loading} className="mt-8 hidden w-full rounded-full bg-black px-8 py-5 text-lg font-semibold text-white transition hover:opacity-80 disabled:opacity-50 lg:block">{loading ? "Connessione a Stripe..." : `Vai al pagamento — ${formatEur(totalPrice)}`}</button>

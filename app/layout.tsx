@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   category: "flower delivery",
   alternates: {
-    canonical: "/",
     languages: {
       "it-IT": "/",
       "en": "/en",

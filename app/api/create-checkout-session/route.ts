@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { DELIVERY_SLOTS, isDeliverySlot } from "@/data/delivery-slots";
 import { getProduct } from "@/data/products";
 import {
   DELIVERY_FEE,
@@ -18,6 +19,7 @@ type CheckoutPayload = {
   postalCode?: string;
   doorbell?: string;
   deliveryDate?: string;
+  deliverySlot?: string;
   message?: string;
   notes?: string;
   customerName?: string;
@@ -61,6 +63,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "CAP non valido" }, { status: 400 });
     }
 
+    if (!isDeliverySlot(body.deliverySlot)) {
+      return NextResponse.json({ error: "Seleziona una fascia oraria valida" }, { status: 400 });
+    }
+    const deliverySlot = DELIVERY_SLOTS[body.deliverySlot];
     const origin = new URL(request.url).origin;
     const params = new URLSearchParams();
     params.append("mode", "payment");
@@ -81,6 +87,14 @@ export async function POST(request: Request) {
     params.append("line_items[1][price_data][product_data][name]", "Consegna a domicilio a Milano");
     params.append("line_items[1][price_data][product_data][description]", "Costo fisso di consegna");
 
+    if (deliverySlot.surcharge > 0) {
+      params.append("line_items[2][quantity]", "1");
+      params.append("line_items[2][price_data][currency]", "eur");
+      params.append("line_items[2][price_data][unit_amount]", String(Math.round(deliverySlot.surcharge * 100)));
+      params.append("line_items[2][price_data][product_data][name]", `Supplemento consegna serale ${deliverySlot.label}`);
+    }
+    add(params, "metadata[delivery_slot]", deliverySlot.label);
+    add(params, "metadata[delivery_surcharge]", deliverySlot.surcharge.toFixed(2));
     add(params, "metadata[product_slug]", product.slug);
     add(params, "metadata[product_name]", product.name);
     add(params, "metadata[size]", size);
