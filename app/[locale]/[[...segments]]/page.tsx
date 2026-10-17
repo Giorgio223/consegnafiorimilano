@@ -60,6 +60,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = localeData(rawLocale);
   const t = copy[locale];
   const path = segments.join("/");
+  // Do not advertise nonexistent localized routes as indexable pages.
+  const validRoute = segments.length === 0 ||
+    (segments.length === 1 && ["bouquet", "come-funziona", "consegna-fiori-milano"].includes(segments[0])) ||
+    (segments.length === 2 && segments[0] === "fiori" && Boolean(categoryMap[segments[1]])) ||
+    (segments.length === 2 && segments[0] === "prodotti" && Boolean(getProduct(segments[1])));
+  if (!validRoute) return { robots: { index: false, follow: false } };
   const canonical = `/${locale}${path ? `/${path}` : ""}`;
   let title: string = t.homeTitle;
   let description: string = t.homeDescription;

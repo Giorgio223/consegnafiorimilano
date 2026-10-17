@@ -1,0 +1,8 @@
+SEO update (17 October 2026)
+
+- Sitemap no longer reports an invented current last-modified date for every URL. Google can use its own crawl signals until real per-page modification timestamps are available.
+- Invalid localized URL patterns now receive noindex metadata, in addition to their existing 404 rendering.
+- Existing canonical, hreflang, robots, product routes, checkout and tracking preserved.
+
+Important: Google indexing is not guaranteed by code changes. Search Console validation already started; do not repeatedly request indexing.
+Deploy using the same workflow as before. Keep deployment environment variables unchanged.
