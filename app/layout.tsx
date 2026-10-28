@@ -84,6 +84,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
   return (
     <html lang="it">
+      <head>
+        {/* Consent Mode v2 defaults are established synchronously BEFORE any Google tag. */}
+        <script id="cfm-consent-default" dangerouslySetInnerHTML={{__html: `
+          window.dataLayer=window.dataLayer||[];
+          window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};
+          window.gtag('consent','default',{
+            analytics_storage:'denied',ad_storage:'denied',
+            ad_user_data:'denied',ad_personalization:'denied'
+          });
+        `}} />
+      </head>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
         {children}

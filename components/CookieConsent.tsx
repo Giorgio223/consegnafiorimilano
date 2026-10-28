@@ -80,7 +80,7 @@ export default function CookieConsent() {
   const [marketing, setMarketing] = useState(false);
   useEffect(() => {
     ensureTag();
-    window.gtag?.("consent", "default", consentState({ analytics: false, marketing: false }));
+    // Default consent is already initialized synchronously in <head>.
     try {
       const stored = localStorage.getItem(KEY);
       if (stored) {
@@ -100,23 +100,28 @@ export default function CookieConsent() {
     setAnalytics(a); setMarketing(m); setOpen(false); setExpanded(false);
     apply(choice);
   }
-  if (!open) return null;
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[100] px-3 pb-3 sm:px-5 sm:pb-5" role="region" aria-label={t.title}>
-      <section className="pointer-events-auto mx-auto w-full max-w-6xl rounded-2xl border border-neutral-200 bg-white p-5 text-neutral-900 shadow-[0_12px_55px_rgba(0,0,0,.18)] sm:p-7">
+    <>
+    {!open && (
+      <button type="button" onClick={() => { setExpanded(true); setOpen(true); }}
+        className="fixed bottom-4 left-4 z-[100] rounded-full border border-neutral-200 bg-white px-5 py-3 text-sm font-medium text-neutral-800 shadow-lg hover:bg-neutral-50 sm:bottom-5 sm:left-5"
+        aria-label={t.title}>{t.title}</button>
+    )}
+    {open && <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[100] px-3 pb-3 sm:px-5 sm:pb-5" role="region" aria-label={t.title}>
+      <section className="pointer-events-auto mx-auto w-full max-w-6xl rounded-2xl border border-neutral-200 bg-white p-6 text-neutral-900 shadow-[0_12px_55px_rgba(0,0,0,.18)] sm:p-9">
         {!expanded ? (
           <div className="flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:gap-8">
-            <div className="min-w-0 flex-1"><p className="text-base leading-7 text-neutral-700">{t.summary} <a className="font-semibold underline underline-offset-2" href="/privacy-policy">{t.policy}</a>.</p></div>
+            <div className="min-w-0 flex-1"><p className="text-[17px] leading-8 text-neutral-700">{t.summary} <a className="font-semibold underline underline-offset-2" href="/privacy-policy">{t.policy}</a>.</p></div>
             <div className="flex w-full flex-wrap gap-2 lg:w-auto lg:shrink-0">
-              <button type="button" onClick={() => save(false, false)} className="rounded-full border border-neutral-300 px-5 py-3 text-base font-semibold hover:bg-neutral-50">{t.reject}</button>
-              <button type="button" onClick={() => setExpanded(true)} className="rounded-full border border-neutral-300 px-5 py-3 text-base font-semibold hover:bg-neutral-50">{t.customize}</button>
-              <button type="button" onClick={() => save(true, true)} className="rounded-full bg-neutral-900 px-5 py-3 text-base font-semibold text-white hover:bg-neutral-700">{t.accept}</button>
+              <button type="button" onClick={() => save(false, false)} className="rounded-full border border-neutral-300 px-6 py-3.5 text-base font-semibold hover:bg-neutral-50">{t.reject}</button>
+              <button type="button" onClick={() => setExpanded(true)} className="rounded-full border border-neutral-300 px-6 py-3.5 text-base font-semibold hover:bg-neutral-50">{t.customize}</button>
+              <button type="button" onClick={() => save(true, true)} className="rounded-full bg-neutral-900 px-6 py-3.5 text-base font-semibold text-white hover:bg-neutral-700">{t.accept}</button>
             </div>
           </div>
         ) : (
           <div>
-            <h2 className="text-xl font-semibold">{t.title}</h2>
-            <p className="mt-1 text-sm leading-6 text-neutral-600">{t.details} <a href="/privacy-policy" className="underline underline-offset-2">{t.policy}</a>.</p>
+            <h2 className="text-2xl font-semibold">{t.title}</h2>
+            <p className="mt-1 text-base leading-7 text-neutral-600">{t.details} <a href="/privacy-policy" className="underline underline-offset-2">{t.policy}</a>.</p>
             <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:gap-8">
               <label className="flex items-center gap-3 text-sm font-medium"><input type="checkbox" checked={analytics} onChange={(e) => setAnalytics(e.target.checked)} className="h-4 w-4 accent-neutral-900" />{t.analytics}</label>
               <label className="flex items-center gap-3 text-sm font-medium"><input type="checkbox" checked={marketing} onChange={(e) => setMarketing(e.target.checked)} className="h-4 w-4 accent-neutral-900" />{t.marketing}</label>
@@ -129,6 +134,7 @@ export default function CookieConsent() {
           </div>
         )}
       </section>
-    </div>
+    </div>}
+    </>
   );
 }
