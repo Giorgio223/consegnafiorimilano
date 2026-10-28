@@ -57,11 +57,13 @@ function apply(choice: Pick<Choice, "analytics" | "marketing">) {
       if (ga) window.gtag?.("config", ga, { send_page_view: false });
       if (ads) window.gtag?.("config", ads);
       pageView();
+      window.dispatchEvent(new Event("cfm-google-ready"));
     };
     script.onerror = () => { googleStarted = false; };
     document.head.appendChild(script);
   } else if (googleLoaded) {
     pageView();
+    window.dispatchEvent(new Event("cfm-google-ready"));
   }
 }
 const translations = {

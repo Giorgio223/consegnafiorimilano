@@ -1,0 +1,11 @@
+Исправления: Google Ads/GA4 purchase после Stripe
+- Заказ считается только на /checkout/success после серверного подтверждения Stripe payment_status=paid.
+- Отложенная загрузка Google tag теперь вызывает повторную попытку отправки.
+- Отдельные ключи локальной дедупликации для GA4 и Google Ads.
+- Реальная сумма Stripe в евро и transaction_id=Stripe Checkout session ID.
+- Теги и cookies по-прежнему требуют соответствующего согласия пользователя.
+- Checkout, цены, Stripe API и админка не менялись.
+
+ВАЖНО: это клиентская отправка. Если клиент не посетил success, не согласился на cookies или заблокировал Google, покупка в Ads может не учитываться. Для полного серверного учета нужна отдельная Stripe webhook интеграция и соблюдение правил consent.
+
+Публикация: заменить файлы внутри локальной GitHub папки (не заменять .git), npm ci, npm run build, затем commit/push. Настроить NEXT_PUBLIC_GOOGLE_ADS_ID и NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL в Vercel Production.
