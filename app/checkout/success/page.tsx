@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PurchaseAnalytics from "@/components/PurchaseAnalytics";
 import OrderTracking from "@/components/OrderTracking";
 import { stripeRequest, type StripeSession } from "@/lib/stripe";
 
@@ -29,6 +30,7 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
 
         {session && session.payment_status === "paid" ? (
           <>
+            <PurchaseAnalytics id={session.id} total={session.amount_total || 0} currency={session.currency || "eur"} />
             <OrderTracking session={session} />
             <div className="mt-8 flex flex-col items-center justify-center gap-3 text-center sm:flex-row">
               <Link href={`/tracking/${session.id}`} className="rounded-full bg-black px-7 py-4 font-semibold text-white">Apri il tracking permanente</Link>

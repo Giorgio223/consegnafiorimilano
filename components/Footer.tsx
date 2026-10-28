@@ -38,6 +38,9 @@ export default function Footer() {
             <Link href={l("/come-funziona")}>{copy.how}</Link>
             <Link href={l("/consegna-fiori-milano")}>{copy.delivery}</Link>
             {locale === "it" && <Link href="/servizi/consegna-fiori-in-giornata-milano">Consegna in giornata</Link>}
+            <Link href={locale === "it" ? "/politica-resi" : locale === "en" ? "/en/return-policy" : "/ru/return-policy"}>{locale === "it" ? "Resi e cancellazioni" : locale === "en" ? "Returns and cancellations" : "Возврат и отмена"}</Link>
+            <Link href="/privacy-policy">Privacy & Cookie</Link>
+            <button type="button" onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))} className="text-left underline">{locale === "it" ? "Preferenze cookie" : locale === "en" ? "Cookie settings" : "Настройки cookie"}</button>
           </div>
         </div>
         <div>

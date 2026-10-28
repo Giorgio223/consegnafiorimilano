@@ -101,9 +101,11 @@ function CheckoutContent() {
               <div className="mt-7 grid gap-5 md:grid-cols-2">
                 <div><label htmlFor="customerName" className="mb-2 block text-sm font-semibold">Nome e cognome *</label><input id="customerName" name="customerName" required placeholder="Il tuo nome" className={inputClass} /></div>
                 <div><label htmlFor="customerEmail" className="mb-2 block text-sm font-semibold">Email *</label><input id="customerEmail" name="customerEmail" type="email" required placeholder="email@esempio.it" className={inputClass} /></div>
+                <div><label htmlFor="customerPhone" className="mb-2 block text-sm font-semibold">Il tuo telefono * (numero dell’acquirente)</label><input id="customerPhone" name="customerPhone" type="tel" autoComplete="tel" inputMode="tel" minLength={7} maxLength={25} required placeholder="+39 333 123 4567" className={inputClass} /></div>
               </div>
             </section>
 
+            <p className="text-sm text-neutral-600">Prima del pagamento consulta la <Link href="/politica-resi" target="_blank" className="underline">politica di cancellazione e resi</Link> e l’<Link href="/privacy-policy" target="_blank" className="underline">informativa privacy</Link>. I fiori freschi sono deperibili; restano validi i diritti di garanzia previsti dalla legge.</p>
             {error && <p role="alert" className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-700">{error}</p>}
             <button type="submit" disabled={loading} className="w-full rounded-full bg-black px-8 py-5 text-lg font-semibold text-white disabled:opacity-50 lg:hidden">{loading ? "Connessione a Stripe..." : `Vai al pagamento — ${formatEur(totalPrice)}`}</button>
           </form>

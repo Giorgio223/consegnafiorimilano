@@ -24,6 +24,7 @@ type CheckoutPayload = {
   notes?: string;
   customerName?: string;
   customerEmail?: string;
+  customerPhone?: string;
 };
 
 type StripeCreateResponse = { id: string; url: string | null };
@@ -55,9 +56,13 @@ export async function POST(request: Request) {
       body.deliveryDate,
       body.customerName,
       body.customerEmail,
+      body.customerPhone,
     ];
     if (required.some((value) => !value?.trim())) {
       return NextResponse.json({ error: "Compila tutti i campi obbligatori" }, { status: 400 });
+    }
+    if (!/^[+()\d\s.-]{7,25}$/.test(body.customerPhone!.trim()) || !/^[+()\d\s.-]{7,25}$/.test(body.recipientPhone!.trim())) {
+      return NextResponse.json({ error: "Numero di telefono non valido" }, { status: 400 });
     }
     if (!/^\d{5}$/.test(body.postalCode!.trim())) {
       return NextResponse.json({ error: "CAP non valido" }, { status: 400 });
@@ -112,6 +117,7 @@ export async function POST(request: Request) {
     add(params, "metadata[courier_notes]", body.notes?.slice(0, 450));
     add(params, "metadata[customer_name]", body.customerName);
     add(params, "metadata[customer_email]", body.customerEmail);
+    add(params, "metadata[customer_phone]", body.customerPhone?.trim());
     add(params, "metadata[tracking_status]", "received");
     add(params, "metadata[tracking_updated_at]", new Date().toISOString());
 
