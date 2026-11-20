@@ -14,7 +14,11 @@ export default function OrderTracking({ session, locale = "it" }: { session: Str
   const rawStatus = metadata.tracking_status as OrderStatus | undefined;
   const currentStatus: OrderStatus = ORDER_STATUSES.includes(rawStatus as OrderStatus) ? (rawStatus as OrderStatus) : "received";
   const currentIndex = ORDER_STATUSES.indexOf(currentStatus);
-  const copy = trackingCopy[locale];
+const copy = trackingCopy[
+  locale === "de" || locale === "es" || locale === "fr"
+    ? "en"
+    : locale
+];
   const customerTitle = locale === "ru" ? "Ваш заказ" : locale === "en" ? "Your order" : "Il tuo ordine";
   const deliveryLabel = locale === "ru" ? "Доставка" : locale === "en" ? "Delivery" : "Consegna";
   const recipientLabel = locale === "ru" ? "Получатель" : locale === "en" ? "Recipient" : "Destinatario";
