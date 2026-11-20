@@ -7,9 +7,9 @@ export const business = {
   url: SITE_URL,
   founded: "2018", // Owner-provided claim: verify supporting documents before deploying.
   legalName: "Consegna Dei Fiori A Milano e dintorni",
-  vat: "[P.IVA — da inserire]",
-  address: "Via Romilli, Milano (MI), Italia — numero civico da verificare",
-  landline: "[Telefono fisso — da inserire]",
+  vat: "",
+  address: "",
+  landline: "",
   email: "info@consegnah24.it",
   whatsapp: WHATSAPP_NUMBER,
   // Publish these ONLY if they match the real business address and actual opening hours.
