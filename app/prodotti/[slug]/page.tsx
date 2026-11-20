@@ -1,3 +1,4 @@
+import { languageAlternates } from "@/lib/i18n";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { deliveryAreas, deliveryAreaUrl } from "@/data/delivery-areas";
@@ -33,12 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: targetedDescriptions[product.slug] ?? `${product.shortDescription} Ordina ${product.name.toLowerCase()} online con consegna a domicilio a Milano.`,
     alternates: {
       canonical: `/prodotti/${product.slug}`,
-      languages: {
-        "it-IT": `/prodotti/${product.slug}`,
-        en: `/en/prodotti/${product.slug}`,
-        ru: `/ru/prodotti/${product.slug}`,
-        "x-default": `/prodotti/${product.slug}`,
-      },
+      languages: languageAlternates(`/prodotti/${product.slug}`),
     },
     openGraph: { title, description: product.shortDescription, url: `/prodotti/${product.slug}`, images: [{ url: product.image, alt: `${product.name} con consegna a Milano` }] },
   };

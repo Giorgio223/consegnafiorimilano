@@ -1,3 +1,4 @@
+import { languageAlternates } from "@/lib/i18n";
 import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     "Scopri rose rosse, rose rosa e bouquet romantici con consegna a domicilio a Milano. Ordina online le tue rose preferite.",
   alternates: {
     canonical: "/fiori/rose",
-    languages: { "it-IT": "/fiori/rose", en: "/en/fiori/rose", ru: "/ru/fiori/rose", "x-default": "/fiori/rose" },
+     languages: languageAlternates("/fiori/rose"),
   },
 };
 

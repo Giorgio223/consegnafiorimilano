@@ -1,0 +1,566 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.consegnafiorimilano\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^flower\\.milan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.flower\\.milan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^flowerdeliverymilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.flowerdeliverymilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^flowermilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.flowermilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^flowers\\.milan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.flowers\\.milan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^flowersdeliverymilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.flowersdeliverymilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^blumenmailand\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/de",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.blumenmailand\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/de",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^blumenmailand\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/de",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.blumenmailand\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/de",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^blumenversandmailand\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/de",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.blumenversandmailand\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/de",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^entregafloresmilan\\.es$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.entregafloresmilan\\.es$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^enviofloresmilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.enviofloresmilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^enviofloresmilan\\.es$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.enviofloresmilan\\.es$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^enviofloresmilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.enviofloresmilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^flores\\.milan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.flores\\.milan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^floresmilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.floresmilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^floresmilan\\.es$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.floresmilan\\.es$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^floresmilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.floresmilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/es",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^fleurs\\.milan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/fr",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.fleurs\\.milan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/fr",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^fleursmilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/fr",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.fleursmilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/fr",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^fleursmilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/fr",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.fleursmilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/fr",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^livraisonfleursmilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/fr",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.livraisonfleursmilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/fr",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^livraisonfleursmilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/fr",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.livraisonfleursmilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/fr",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^dostavkacvetovmilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/ru",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.dostavkacvetovmilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/ru",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^dostavkacvetovmilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/ru",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.dostavkacvetovmilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/ru",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^dostavkamilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/ru",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.dostavkamilan\\.com$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/ru",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^dostavkamilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/ru",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "^www\\.dostavkamilan\\.it$"
+        }
+      ],
+      "destination": "https://consegnafiorimilano.it/ru",
+      "statusCode": 301
+    }
+  ]
+}

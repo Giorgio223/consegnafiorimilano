@@ -1,7 +1,9 @@
+import { headers } from "next/headers";
 import type { Metadata } from "next";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 import WhatsAppShare from "@/components/WhatsAppShare";
+import { locales } from "@/lib/i18n";
 import { SEO_KEYWORDS, SITE_NAME, SITE_URL, WHATSAPP_NUMBER, BUSINESS_EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -19,6 +21,9 @@ export const metadata: Metadata = {
     languages: {
       "it-IT": "/",
       "en": "/en",
+      "de": "/de",
+      "es": "/es",
+      "fr": "/fr",
       "ru": "/ru",
       "x-default": "/",
     },
@@ -29,7 +34,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "it_IT",
-    alternateLocale: ["en_GB", "ru_RU"],
+    alternateLocale: ["en_GB", "de_DE", "es_ES", "fr_FR", "ru_RU"],
     type: "website",
     images: [{ url: "/images/hero-home.jpg", width: 1200, height: 1500, alt: "Bouquet di fiori freschi con consegna a Milano" }],
   },
@@ -52,7 +57,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  // The proxy supplies the URL locale for server-rendered <html lang>.
+  const requestedLocale = (await headers()).get("x-cfm-locale");
+  const htmlLocale = locales.find((code) => code === requestedLocale) || "it";
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -61,7 +69,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         "@id": `${SITE_URL}/#website`,
         name: SITE_NAME,
         url: SITE_URL,
-        inLanguage: ["it-IT", "en", "ru"],
+        inLanguage: ["it-IT", "en", "de", "es", "fr", "ru"],
       },
       {
         "@type": ["Florist", "LocalBusiness"],
@@ -83,7 +91,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     ],
   };
   return (
-    <html lang="it">
+    <html lang={htmlLocale}>
       <head>
         {/* Consent Mode v2 defaults are established synchronously BEFORE any Google tag. */}
         <script id="cfm-consent-default" dangerouslySetInnerHTML={{__html: `

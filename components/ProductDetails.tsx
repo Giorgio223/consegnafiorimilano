@@ -3,10 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { withLocale, type Locale } from "@/lib/i18n";
 import { DELIVERY_FEE, formatEur, getSizePrices, type ProductSize } from "@/data/pricing";
 
 type ProductDetailsProps = {
-  locale?: "it" | "en" | "ru";
+  locale?: Locale;
   product: {
     name: string;
     slug: string;
@@ -32,6 +33,18 @@ export default function ProductDetails({ product, locale = "it" }: ProductDetail
     size: "Выберите размер", quantity: "Количество", delivery: "Доставка по Милану", total: "Итого", proceed: "Перейти к заказу", details: "О букете",
     features: ["Отборные свежие цветы", "Букет собирается с особой заботой", "Можно добавить личное сообщение", "Доставка по Милану"],
     sizeDesc: { Piccolo: "Компактная композиция для элегантного знака внимания.", Medio: "Универсальный сбалансированный размер.", Premium: "Более пышная премиальная композиция для особого подарка." },
+  } : locale === "de" ? {
+    size: "Größe wählen", quantity: "Anzahl", delivery: "Lieferung in Mailand", total: "Gesamt", proceed: "Zur Bestellung", details: "Produktdetails",
+    features: ["Frische Blumen", "Sorgfältig zusammengestellt", "Persönliche Grußkarte", "Lieferung in Mailand"],
+    sizeDesc: { Piccolo: "Kompakter Strauß.", Medio: "Vielseitige, ausgewogene Größe.", Premium: "Besonders üppige Komposition." },
+  } : locale === "es" ? {
+    size: "Elegir tamaño", quantity: "Cantidad", delivery: "Entrega en Milán", total: "Total", proceed: "Continuar al pedido", details: "Detalles del ramo",
+    features: ["Flores frescas", "Preparación cuidadosa", "Tarjeta personalizada", "Entrega a domicilio en Milán"],
+    sizeDesc: { Piccolo: "Ramo compacto.", Medio: "Tamaño equilibrado.", Premium: "Composición más abundante." },
+  } : locale === "fr" ? {
+    size: "Choisir la taille", quantity: "Quantité", delivery: "Livraison à Milan", total: "Total", proceed: "Passer commande", details: "Détails du bouquet",
+    features: ["Fleurs fraîches", "Composition soignée", "Message personnel", "Livraison à Milan"],
+    sizeDesc: { Piccolo: "Bouquet compact.", Medio: "Taille équilibrée.", Premium: "Composition plus généreuse." },
   } : null;
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState<ProductSize>("Medio");
@@ -101,11 +114,11 @@ export default function ProductDetails({ product, locale = "it" }: ProductDetail
           <div className="mt-5 flex items-center justify-between border-t border-black/10 pt-5 text-2xl font-bold"><span>{copy?.total || "Totale"}</span><span>{formatEur(totalPrice)}</span></div>
         </div>
 
-        <Link href={`/checkout?product=${product.slug}&size=${size}&quantity=${quantity}`} className="mt-8 block w-full rounded-full bg-black px-8 py-5 text-center text-lg font-semibold text-white transition hover:opacity-80">
+        <Link href={`/checkout?product=${product.slug}&size=${size}&quantity=${quantity}&locale=${locale}`} className="mt-8 block w-full rounded-full bg-black px-8 py-5 text-center text-lg font-semibold text-white transition hover:opacity-80">
           {copy?.proceed || "Procedi all\'ordine"} — {formatEur(totalPrice)}
         </Link>
 
-        <Link href="/bouquet" className="mt-4 block w-full rounded-full border border-black px-8 py-5 text-center font-semibold transition hover:bg-black hover:text-white">Continua a scegliere</Link>
+        <Link href={withLocale("/bouquet", locale)} className="mt-4 block w-full rounded-full border border-black px-8 py-5 text-center font-semibold transition hover:bg-black hover:text-white">Continua a scegliere</Link>
       </div>
     </section>
   );

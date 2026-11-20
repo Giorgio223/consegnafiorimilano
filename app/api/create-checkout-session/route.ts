@@ -6,9 +6,12 @@ import {
   getSizePrices,
   isProductSize,
 } from "@/data/pricing";
+import { isLocale, type Locale } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/site";
 import { stripeRequest } from "@/lib/stripe";
 
 type CheckoutPayload = {
+  locale?: string;
   productSlug?: string;
   size?: string;
   quantity?: number;
@@ -72,13 +75,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Seleziona una fascia oraria valida" }, { status: 400 });
     }
     const deliverySlot = DELIVERY_SLOTS[body.deliverySlot];
-    const origin = new URL(request.url).origin;
+    const locale: Locale = isLocale(body.locale) ? body.locale : "it";
+    const origin = SITE_URL;
     const params = new URLSearchParams();
     params.append("mode", "payment");
-    params.append("success_url", `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`);
-    params.append("cancel_url", `${origin}/checkout/cancel?product=${encodeURIComponent(product.slug)}&size=${encodeURIComponent(size)}&quantity=${quantity}`);
+    params.append("success_url", `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}&locale=${locale}`);
+    params.append("cancel_url", `${origin}/checkout/cancel?product=${encodeURIComponent(product.slug)}&size=${encodeURIComponent(size)}&quantity=${quantity}&locale=${locale}`);
     params.append("customer_email", body.customerEmail!.trim());
-    params.append("locale", "it");
+    params.append("locale", locale);
 
     params.append("line_items[0][quantity]", String(quantity));
     params.append("line_items[0][price_data][currency]", "eur");
@@ -100,6 +104,7 @@ export async function POST(request: Request) {
     }
     add(params, "metadata[delivery_slot]", deliverySlot.label);
     add(params, "metadata[delivery_surcharge]", deliverySlot.surcharge.toFixed(2));
+    add(params, "metadata[locale]", locale);
     add(params, "metadata[product_slug]", product.slug);
     add(params, "metadata[product_name]", product.name);
     add(params, "metadata[size]", size);

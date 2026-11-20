@@ -1,3 +1,4 @@
+import { languageAlternates } from "@/lib/i18n";
 import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     "Scopri bouquet di tulipani colorati, rosa e bianchi con consegna a domicilio a Milano. Ordina online i tuoi tulipani preferiti.",
   alternates: {
     canonical: "/fiori/tulipani",
-    languages: { "it-IT": "/fiori/tulipani", en: "/en/fiori/tulipani", ru: "/ru/fiori/tulipani", "x-default": "/fiori/tulipani" },
+     languages: languageAlternates("/fiori/tulipani"),
   },
 };
 

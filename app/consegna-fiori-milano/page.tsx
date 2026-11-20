@@ -1,3 +1,4 @@
+import { languageAlternates } from "@/lib/i18n";
 import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   keywords: ["consegna fiori in giornata Milano", "fiori Milano", "fiori a Milano", "consegna fiori a domicilio Milano", "fiori a domicilio Milano"],
   alternates: {
     canonical: "/consegna-fiori-milano",
-    languages: { "it-IT": "/consegna-fiori-milano", en: "/en/consegna-fiori-milano", ru: "/ru/consegna-fiori-milano", "x-default": "/consegna-fiori-milano" },
+     languages: languageAlternates("/consegna-fiori-milano"),
   },
 };
 

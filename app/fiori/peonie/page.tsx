@@ -1,3 +1,4 @@
+import { languageAlternates } from "@/lib/i18n";
 import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     "Scopri bouquet di peonie rosa, bianche e romantiche con consegna a domicilio a Milano. Ordina online composizioni eleganti e raffinate.",
   alternates: {
     canonical: "/fiori/peonie",
-    languages: { "it-IT": "/fiori/peonie", en: "/en/fiori/peonie", ru: "/ru/fiori/peonie", "x-default": "/fiori/peonie" },
+     languages: languageAlternates("/fiori/peonie"),
   },
 };
 

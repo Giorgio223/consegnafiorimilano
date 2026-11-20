@@ -8,8 +8,9 @@ import ProductDetails from "@/components/ProductDetails";
 import { products, getProduct, getProductsByCategory } from "@/data/products";
 import { formatEur, getSizePrices } from "@/data/pricing";
 import { SITE_URL } from "@/lib/site";
+import { languageAlternates, type Locale, ui } from "@/lib/i18n";
 
-const supported = new Set(["en", "ru"]);
+const supported = new Set(["en", "de", "es", "fr", "ru"]);
 const categoryMap: Record<string, string> = { rose: "Rose", peonie: "Peonie", tulipani: "Tulipani", girasoli: "Girasoli", orchidee: "Orchidee" };
 
 const copy = {
@@ -30,6 +31,28 @@ const copy = {
     categoryTitle: (name: string) => `${name} delivery in Milan`,
     productSuffix: "with flower delivery in Milan",
   },
+  de: {
+    homeTitle: "Blumenlieferung Mailand | Frische Blumensträuße online",
+    homeDescription: "Blumenlieferung in Mailand: Rosen, Pfingstrosen und frische Sträuße online bestellen. Zustellung am selben Tag auf Anfrage und nach Verfügbarkeit.",
+    h1: "Frische Blumenlieferung in Mailand", intro: "Blumensträuße für Geburtstage, Jubiläen und besondere Momente online bestellen. Wählen Sie einen Strauß und bezahlen Sie sicher online.",
+    cta: "Blumensträuße entdecken", deliveryTitle: "Blumenlieferung in Mailand und Umgebung", deliveryText: "Wir liefern Blumen in Mailand. Für dringende Bestellungen und Lieferungen außerhalb der Stadt bestätigen wir Verfügbarkeit und Lieferzeit auf Anfrage.",
+    howTitle: "So funktioniert die Blumenlieferung", howText: "Strauß auswählen, Empfänger und Lieferadresse eingeben, sicher mit Stripe bezahlen und den Bestellstatus verfolgen.",
+    bouquetTitle: "Blumensträuße mit Lieferung in Mailand", bouquetIntro: "Entdecken Sie frische Sträuße für Geburtstage, Überraschungen und besondere Anlässe.", discover: "Strauß ansehen", from: "Ab", categoryTitle: (name: string) => `${name} mit Lieferung in Mailand`, productSuffix: "mit Blumenlieferung in Mailand",
+  },
+  es: {
+    homeTitle: "Envío de flores Milán | Ramos frescos a domicilio", homeDescription: "Envío de flores a Milán. Compra rosas, peonías y ramos online con entrega a domicilio. Entrega en el mismo día según disponibilidad.",
+    h1: "Envío de flores frescas a Milán", intro: "Pide flores online para cumpleaños, aniversarios y ocasiones especiales. Elige tu ramo y paga de forma segura.",
+    cta: "Ver ramos", deliveryTitle: "Entrega de flores en Milán y alrededores", deliveryText: "Entregamos flores en Milán. Para pedidos urgentes o fuera de la ciudad, confirma la disponibilidad y los horarios antes de pagar.",
+    howTitle: "Cómo funciona el envío de flores", howText: "Elige el ramo, introduce los datos de entrega, paga con Stripe y consulta el seguimiento del pedido.",
+    bouquetTitle: "Ramos con entrega en Milán", bouquetIntro: "Explora ramos frescos para sorpresas románticas, celebraciones y regalos.", discover: "Ver ramo", from: "Desde", categoryTitle: (name: string) => `${name} con envío a Milán`, productSuffix: "con entrega de flores en Milán",
+  },
+  fr: {
+    homeTitle: "Livraison de fleurs Milan | Bouquets frais à domicile", homeDescription: "Livraison de fleurs à Milan : roses, pivoines et bouquets frais en ligne. Livraison le jour même sur demande selon disponibilité.",
+    h1: "Livraison de fleurs fraîches à Milan", intro: "Commandez des bouquets pour les anniversaires, fêtes et surprises. Choisissez vos fleurs et payez en ligne en toute sécurité.",
+    cta: "Découvrir les bouquets", deliveryTitle: "Livraison de fleurs à Milan et aux environs", deliveryText: "Livraison de fleurs à Milan. Pour les demandes urgentes ou hors de la ville, contactez-nous pour confirmer la disponibilité.",
+    howTitle: "Comment fonctionne la livraison", howText: "Choisissez un bouquet, renseignez l'adresse de livraison, payez via Stripe et suivez votre commande.",
+    bouquetTitle: "Bouquets livrés à Milan", bouquetIntro: "Des bouquets frais pour vos cadeaux, fêtes et attentions romantiques.", discover: "Voir le bouquet", from: "À partir de", categoryTitle: (name: string) => `${name} livrées à Milan`, productSuffix: "avec livraison de fleurs à Milan",
+  },
   ru: {
     homeTitle: "Доставка цветов в Милане | Свежие букеты на дом",
     homeDescription: "Закажите свежие цветы и букеты с доставкой по Милану. Розы, пионы, тюльпаны, орхидеи и срочная доставка при наличии возможности.",
@@ -49,9 +72,9 @@ const copy = {
   },
 } as const;
 
-function localeData(value: string): "en" | "ru" {
+function localeData(value: string): Exclude<Locale, "it"> {
   if (!supported.has(value)) notFound();
-  return value as "en" | "ru";
+  return value as Exclude<Locale, "it">;
 }
 
 
@@ -74,13 +97,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title = t.bouquetTitle;
     description = t.bouquetIntro;
   } else if (segments[0] === "fiori" && segments[1] && categoryMap[segments[1]]) {
-    title = t.categoryTitle(categoryMap[segments[1]]);
-    description = `${categoryMap[segments[1]]} ${t.productSuffix}.`;
+    const catIndex = Object.keys(categoryMap).indexOf(segments[1]);
+    const categoryName = ui[locale].categories[catIndex]?.[0] || categoryMap[segments[1]];
+    title = t.categoryTitle(categoryName);
+    description = `${categoryName} ${t.productSuffix}.`;
   } else if (segments[0] === "prodotti" && segments[1]) {
     const product = getProduct(segments[1]);
     if (!product) return { robots: { index: false, follow: false } };
     title = `${product.name} ${t.productSuffix}`;
-    description = `${product.shortDescription} ${t.productSuffix}.`;
+    description = `${product.name} ${t.productSuffix}. ${t.bouquetIntro}`;
   } else if (segments[0] === "consegna-fiori-milano") {
     title = t.deliveryTitle;
     description = t.deliveryText;
@@ -95,18 +120,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description,
     alternates: {
       canonical,
-      languages: {
-        "it-IT": italianPath,
-        "en": `/en${italianPath === "/" ? "" : italianPath}`,
-        "ru": `/ru${italianPath === "/" ? "" : italianPath}`,
-        "x-default": italianPath,
-      },
+      languages: languageAlternates(italianPath),
     },
-    openGraph: { title, description, url: canonical, locale: locale === "en" ? "en_GB" : "ru_RU", images: [{ url: "/images/hero-home.jpg" }] },
+    openGraph: { title, description, url: canonical, locale: ({ en: "en_GB", de: "de_DE", es: "es_ES", fr: "fr_FR", ru: "ru_RU" } as const)[locale], images: [{ url: "/images/hero-home.jpg" }] },
   };
 }
 
-function ProductGrid({ items, locale }: { items: typeof products; locale: "en" | "ru" }) {
+function ProductGrid({ items, locale }: { items: typeof products; locale: Exclude<Locale, "it"> }) {
   const t = copy[locale];
   return (
     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -115,7 +135,7 @@ function ProductGrid({ items, locale }: { items: typeof products; locale: "en" |
           <Image src={product.image} alt={`${product.name} ${t.productSuffix}`} width={1000} height={1000} className="aspect-square w-full object-cover" />
           <div className="p-6">
             <div className="flex items-start justify-between gap-4"><h2 className="text-2xl font-bold">{product.name}</h2><span className="whitespace-nowrap font-semibold">{t.from} {formatEur(getSizePrices(product.price).Piccolo)}</span></div>
-            <p className="mt-4 leading-7 text-neutral-600">{locale === "en" ? `Fresh ${product.category.toLowerCase()} arrangement designed for gifts and special occasions in Milan.` : `Свежая композиция категории ${product.category} для подарков и особых случаев с доставкой по Милану.`}</p>
+            <p className="mt-4 leading-7 text-neutral-600">{`${t.categoryTitle(ui[locale].categories.find((_, i) => ["Rose", "Peonie", "Tulipani", "Girasoli", "Orchidee"][i] === product.category)?.[0] || product.category)}.`}</p>
             <Link href={`/${locale}/prodotti/${product.slug}`} className="mt-6 block rounded-full bg-black px-6 py-4 text-center font-semibold text-white">{t.discover}</Link>
           </div>
         </article>
@@ -132,7 +152,7 @@ export default async function LocalizedPage({ params }: { params: Promise<{ loca
   if (segments[0] === "prodotti" && segments[1]) {
     const product = getProduct(segments[1]);
     if (!product) notFound();
-    const localizedProduct = { ...product, description: locale === "en" ? `${product.name} is a fresh floral arrangement prepared for birthdays, anniversaries, romantic surprises and other special occasions, with delivery available in Milan.` : `${product.name} — свежая цветочная композиция для дней рождения, годовщин, романтических сюрпризов и других особых случаев с доставкой по Милану.` };
+    const localizedProduct = { ...product, description: `${product.name} — ${t.productSuffix}. ${t.bouquetIntro}` };
     return <main className="min-h-screen bg-white text-[#1f1f1f]"><Header /><ProductDetails product={localizedProduct} locale={locale} /><Footer /></main>;
   }
 
@@ -144,7 +164,7 @@ export default async function LocalizedPage({ params }: { params: Promise<{ loca
   if (segments[0] === "bouquet") {
     heading = t.bouquetTitle; intro = t.bouquetIntro; items = getProductsByCategory("Bouquet");
   } else if (segments[0] === "fiori" && segments[1] && categoryMap[segments[1]]) {
-    const category = categoryMap[segments[1]]; heading = t.categoryTitle(category); intro = `${category} ${t.productSuffix}.`; items = getProductsByCategory(category);
+    const category = categoryMap[segments[1]]; const catIndex = Object.keys(categoryMap).indexOf(segments[1]); const categoryName = ui[locale].categories[catIndex]?.[0] || category; heading = t.categoryTitle(categoryName); intro = `${categoryName} ${t.productSuffix}.`; items = getProductsByCategory(category);
   } else if (segments[0] === "consegna-fiori-milano") {
     heading = t.deliveryTitle; intro = t.deliveryText; showGrid = false;
   } else if (segments[0] === "come-funziona") {
@@ -159,7 +179,7 @@ export default async function LocalizedPage({ params }: { params: Promise<{ loca
     name: heading,
     description: intro,
     url: `${SITE_URL}/${locale}${segments.length ? `/${segments.join("/")}` : ""}`,
-    inLanguage: locale === "en" ? "en" : "ru",
+    inLanguage: locale,
   };
 
   return (

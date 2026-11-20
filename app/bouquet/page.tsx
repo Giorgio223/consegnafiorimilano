@@ -1,3 +1,4 @@
+import { languageAlternates } from "@/lib/i18n";
 import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   title: "Bouquet di Fiori a Milano | Consegna a Domicilio",
   description:
     "Scopri bouquet di fiori freschi con consegna a domicilio a Milano. Composizioni per compleanni, anniversari, amore, feste e occasioni speciali.",
-  alternates: { canonical: "/bouquet", languages: { "it-IT": "/bouquet", en: "/en/bouquet", ru: "/ru/bouquet", "x-default": "/bouquet" } },
+  alternates: { canonical: "/bouquet",  languages: languageAlternates("/bouquet") },
   openGraph: {
     title: "Bouquet di Fiori a Milano | Consegna a Domicilio",
     description: "Bouquet freschi per ogni occasione con consegna a domicilio a Milano.",
@@ -31,7 +32,7 @@ export default function BouquetPage() {
     itemListElement: products.map((product, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: `https://www.consegnafiorimilano.it/prodotti/${product.slug}`,
+      url: `https://consegnafiorimilano.it/prodotti/${product.slug}`,
       name: product.name,
     })),
   };
