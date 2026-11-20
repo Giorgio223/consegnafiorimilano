@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { deliveryAreas, deliveryAreaUrl } from "@/data/delivery-areas";
 
 import Header from "@/components/Header";
 export const metadata: Metadata = {
@@ -36,7 +37,7 @@ export default function ConsegnaFioriMilanoPage() {
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: [
-              { "@type": "Question", name: "È possibile richiedere la consegna fiori in giornata a Milano?", acceptedAnswer: { "@type": "Answer", text: "La consegna in giornata può essere richiesta in base alla disponibilità dei fiori, alla zona e all&apos;orario dell&apos;ordine." } },
+              { "@type": "Question", name: "È possibile richiedere la consegna fiori in giornata a Milano?", acceptedAnswer: { "@type": "Answer", text: "La consegna in giornata può essere richiesta in base alla disponibilità dei fiori, alla zona e all'orario dell'ordine." } },
               { "@type": "Question", name: "Quanto costa la consegna a domicilio?", acceptedAnswer: { "@type": "Answer", text: "Il costo fisso di consegna è di 9,99 euro." } },
               { "@type": "Question", name: "Posso scegliere la dimensione del bouquet?", acceptedAnswer: { "@type": "Answer", text: "Sì. Le composizioni sono disponibili nelle dimensioni Piccolo, Medio e Premium." } }
             ]
@@ -237,7 +238,7 @@ export default function ConsegnaFioriMilanoPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#8c6f5a]">Domande frequenti</p>
           <h2 className="mt-4 text-4xl font-bold">Consegna fiori a Milano: informazioni utili</h2>
           <div className="mt-10 space-y-8">
-            <article><h3 className="text-2xl font-bold">È possibile richiedere la consegna fiori in giornata a Milano?</h3><p className="mt-3 leading-7 text-neutral-600">La consegna in giornata può essere richiesta in base alla disponibilità dei fiori, alla zona e all&apos;orario dell&apos;ordine. Per esigenze urgenti è consigliabile contattarci su WhatsApp prima di completare l&apos;ordine.</p></article>
+            <article><h3 className="text-2xl font-bold">È possibile richiedere la consegna fiori in giornata a Milano?</h3><p className="mt-3 leading-7 text-neutral-600">La consegna in giornata può essere richiesta in base alla disponibilità dei fiori, alla zona e all'orario dell'ordine. Per esigenze urgenti è consigliabile contattarci su WhatsApp prima di completare l&apos;ordine.</p></article>
             <article><h3 className="text-2xl font-bold">Quanto costa la consegna a domicilio?</h3><p className="mt-3 leading-7 text-neutral-600">Il costo fisso di consegna è di 9,99 € e viene mostrato chiaramente nel riepilogo prima del pagamento.</p></article>
             <article><h3 className="text-2xl font-bold">Come posso seguire il mio ordine di fiori?</h3><p className="mt-3 leading-7 text-neutral-600">Dopo il pagamento puoi consultare lo stato dell’ordine nella pagina di tracciamento. Puoi verificare le fasi di preparazione e consegna.</p></article>
             <article><h3 className="text-2xl font-bold">In quali quartieri di Milano consegnate?</h3><p className="mt-3 leading-7 text-neutral-600">Serviamo diverse zone di Milano, tra cui Centro, Brera, Navigli, Porta Romana, Porta Venezia, Isola, CityLife e Città Studi. Per richieste fuori Milano contattaci per verificare la disponibilità.</p></article>
@@ -271,6 +272,7 @@ export default function ConsegnaFioriMilanoPage() {
         </div>
       </section>
 
+      <section className="border-t border-black/10 bg-neutral-50 py-16"><div className="mx-auto max-w-7xl px-6"><h2 className="text-3xl font-bold">Consegna fiori nei quartieri e nei comuni vicini</h2><p className="mt-4 max-w-3xl leading-7 text-neutral-600">Per indirizzi fuori Milano verifica copertura, costo e disponibilità prima dell’ordine.</p><div className="mt-7 flex flex-wrap gap-3">{deliveryAreas.map(area=><Link href={deliveryAreaUrl(area)} key={area.slug} className="rounded-full border border-black/15 bg-white px-5 py-3 font-semibold hover:border-black">Fiori {area.name}</Link>)}<Link href="/zone-consegna" className="rounded-full bg-black px-5 py-3 font-semibold text-white">Tutte le zone</Link></div></div></section>
       <footer className="bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-10 text-sm text-neutral-600 md:flex-row md:justify-between">
           <p>© 2026 Consegna Fiori Milano</p>

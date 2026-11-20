@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { localeFromPath, withLocale } from "@/lib/i18n";
+import { deliveryAreas, deliveryAreaUrl } from "@/data/delivery-areas";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -51,6 +52,8 @@ export default function Footer() {
               <Link href="/servizi/fiorista-milano">Fiorista Milano</Link>
               <Link href="/servizi/fiori-urgenti-milano">Fiori urgenti Milano</Link>
               <Link href="/servizi/consegna-fiori-provincia-milano">Milano e provincia</Link>
+              <Link href="/zone-consegna" className="font-semibold text-black">Zone di consegna</Link>
+              {deliveryAreas.map((area) => <Link key={area.slug} href={deliveryAreaUrl(area)}>Fiori {area.name}</Link>)}
             </div>
           )}
         </div>

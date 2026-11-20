@@ -1,17 +1,18 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/data/products";
 import { seoLandingPages } from "@/data/seo-pages";
+import { deliveryAreas, deliveryAreaUrl } from "@/data/delivery-areas";
 import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/bouquet", "/come-funziona", "/consegna-fiori-milano", "/fiori/rose", "/fiori/peonie", "/fiori/tulipani", "/fiori/girasoli", "/fiori/orchidee", "/politica-resi", "/privacy-policy"];
+  const staticRoutes = ["", "/bouquet", "/come-funziona", "/consegna-fiori-milano", "/fiori/rose", "/fiori/peonie", "/fiori/tulipani", "/fiori/girasoli", "/fiori/orchidee", "/politica-resi", "/privacy-policy", "/zone-consegna"];
 
   const italian = [
     ...staticRoutes.map((route, index) => ({
       url: `${SITE_URL}${route}`,
       changeFrequency: index === 0 ? "daily" as const : "weekly" as const,
       priority: index === 0 ? 1 : 0.8,
-      alternates: ["/politica-resi", "/privacy-policy"].includes(route) ? undefined : { languages: { it: `${SITE_URL}${route}`, en: `${SITE_URL}/en${route}`, ru: `${SITE_URL}/ru${route}` } },
+      alternates: ["/politica-resi", "/privacy-policy", "/zone-consegna"].includes(route) ? undefined : { languages: { it: `${SITE_URL}${route}`, en: `${SITE_URL}/en${route}`, ru: `${SITE_URL}/ru${route}` } },
     })),
     ...products.map((product) => ({
       url: `${SITE_URL}/prodotti/${product.slug}`,
@@ -19,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
       alternates: { languages: { it: `${SITE_URL}/prodotti/${product.slug}`, en: `${SITE_URL}/en/prodotti/${product.slug}`, ru: `${SITE_URL}/ru/prodotti/${product.slug}` } },
     })),
+    ...deliveryAreas.map((area) => ({ url: `${SITE_URL}${deliveryAreaUrl(area)}`, changeFrequency: "monthly" as const, priority: 0.75 })),
     ...seoLandingPages.map((page) => ({
       url: `${SITE_URL}/servizi/${page.slug}`,
       changeFrequency: "weekly" as const,
@@ -27,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const localizedRoutes = [
-    ...staticRoutes.filter((route) => !["/politica-resi", "/privacy-policy"].includes(route)),
+    ...staticRoutes.filter((route) => !["/politica-resi", "/privacy-policy", "/zone-consegna"].includes(route)),
     ...products.map((product) => `/prodotti/${product.slug}`),
   ];
   const localized = (["en", "ru"] as const).flatMap((locale) => localizedRoutes.map((route, index) => ({
