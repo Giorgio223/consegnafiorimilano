@@ -1,0 +1,3 @@
+import type { Locale } from "@/lib/i18n";
+import { benefits } from "@/lib/conversion";
+export default function BenefitsSection({locale="it"}:{locale?:Locale}){const data=benefits[locale];return <section className="bg-neutral-50 py-16"><div className="mx-auto max-w-7xl px-6"><h2 className="text-3xl font-bold">{data.title}</h2><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{data.items.map((item,i)=><article key={item.title} className="rounded-2xl bg-white p-6 shadow-sm"><span aria-hidden="true" className="text-3xl">{["🌿","📸","💌","🚚"][i]}</span><h3 className="mt-4 text-xl font-bold">{item.title}</h3><p className="mt-3 leading-7 text-neutral-600">{item.body}</p></article>)}</div></div></section>}

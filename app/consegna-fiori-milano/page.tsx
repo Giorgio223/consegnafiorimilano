@@ -83,10 +83,11 @@ export default function ConsegnaFioriMilanoPage() {
 
           <div className="overflow-hidden rounded-[2.5rem]">
             <Image width={1200} height={1200}
-              src="/images/consegna-fiori-milano.jpg"
+              src="/images/consegna-fiori-milano.webp"
               alt="Consegna fiori a domicilio a Milano"
               className="aspect-[4/3] h-full w-full object-cover"
-            />
+            loading="lazy"
+                  />
           </div>
         </div>
       </section>

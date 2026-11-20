@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getSeoLandingPage, seoLandingPages } from "@/data/seo-pages";
+import { faqByLocale } from "@/lib/seo-content";
 import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: page.description,
       url: `/servizi/${page.slug}`,
       type: "website",
-      images: [{ url: "/images/consegna-fiori-milano.jpg", alt: page.h1 }],
+      images: [{ url: "/images/consegna-fiori-milano.webp", alt: page.h1 }],
     },
   };
 }
@@ -32,10 +33,11 @@ export default async function SeoServicePage({ params }: { params: Promise<{ slu
   const { slug } = await params;
   const page = getSeoLandingPage(slug);
   if (!page) notFound();
+  const faq = [...page.faq, ...faqByLocale.it.filter(item=>!page.faq.some(existing=>existing.q===item.q))];
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: page.faq.map((item) => ({
+    mainEntity: faq.map((item) => ({
       "@type": "Question",
       name: item.q,
       acceptedAnswer: { "@type": "Answer", text: item.a },
@@ -82,7 +84,7 @@ export default async function SeoServicePage({ params }: { params: Promise<{ slu
         <div className="mx-auto max-w-4xl px-6">
           <h2 className="text-4xl font-bold">Domande frequenti</h2>
           <div className="mt-10 space-y-7">
-            {page.faq.map((item) => (
+            {faq.map((item) => (
               <article key={item.q}>
                 <h3 className="text-2xl font-bold">{item.q}</h3>
                 <p className="mt-3 text-lg leading-8 text-neutral-600">{item.a}</p>
@@ -102,6 +104,7 @@ export default async function SeoServicePage({ params }: { params: Promise<{ slu
           </div>
         </div>
       </section>
+      <section className="mx-auto max-w-5xl px-6 pb-16"><h2 className="text-2xl font-bold">Fiori per ogni occasione, in tutta Milano</h2><div className="mt-5 flex flex-wrap gap-4"><Link href="/fiori/peonie" className="underline">Peonie Milano</Link><Link href="/fiori/rose" className="underline">Rose Milano</Link><Link href="/prodotti/rose-rosse-premium" className="underline">Rose rosse premium</Link><Link href="/zone-consegna" className="underline">Zone di consegna</Link><Link href="/chi-siamo" className="underline">Chi siamo</Link></div></section>
       <Footer />
     </main>
   );

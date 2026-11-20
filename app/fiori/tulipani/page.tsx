@@ -20,7 +20,7 @@ const products = [
     slug: "tulipani-colorati",
     price: "54 €",
     image:
-      "/images/tulipani-colorati.jpg",
+      "/images/tulipani-colorati.webp",
     description:
       "Un bouquet allegro di tulipani colorati per portare energia e felicità.",
   },
@@ -29,7 +29,7 @@ const products = [
     slug: "tulipani-rosa",
     price: "59 €",
     image:
-      "/images/tulipani-rosa.jpg",
+      "/images/tulipani-rosa.webp",
     description:
       "Tulipani rosa delicati per un regalo elegante, romantico e raffinato.",
   },
@@ -38,7 +38,7 @@ const products = [
     slug: "tulipani-bianchi",
     price: "64 €",
     image:
-      "/images/tulipani-bianchi.jpg",
+      "/images/tulipani-bianchi.webp",
     description:
       "Una composizione luminosa di tulipani bianchi dal carattere elegante.",
   },
@@ -47,7 +47,7 @@ const products = [
     slug: "bouquet-tulipani-premium",
     price: "79 €",
     image:
-      "/images/bouquet-tulipani-premium.jpg",
+      "/images/bouquet-tulipani-premium.webp",
     description:
       "Una selezione premium di tulipani per compleanni e occasioni speciali.",
   },
@@ -88,7 +88,8 @@ export default function TulipaniCategoryPage() {
                     src={product.image}
                     alt={`${product.name} con consegna a Milano`}
                     className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
+                  loading="lazy"
+                   title={`${product.name} - fiori e bouquet a Milano`} />
                 </div>
 
                 <div className="p-6">

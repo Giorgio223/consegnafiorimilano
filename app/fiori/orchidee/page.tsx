@@ -20,7 +20,7 @@ const products = [
     slug: "orchidea-bianca-elegance",
     price: "69 €",
     image:
-      "/images/orchidea-bianca-elegance.jpg",
+      "/images/orchidea-bianca-elegance.webp",
     description:
       "Un'orchidea bianca elegante e raffinata, perfetta per un regalo speciale.",
   },
@@ -29,7 +29,7 @@ const products = [
     slug: "orchidea-rosa-premium",
     price: "79 €",
     image:
-      "/images/orchidea-rosa-premium.jpg",
+      "/images/orchidea-rosa-premium.webp",
     description:
       "Un'orchidea rosa delicata e raffinata per sorprendere con eleganza.",
   },
@@ -38,7 +38,7 @@ const products = [
     slug: "composizione-orchidee",
     price: "99 €",
     image:
-      "/images/composizione-orchidee.jpg",
+      "/images/composizione-orchidee.webp",
     description:
       "Una composizione elegante di orchidee pensata per occasioni importanti.",
   },
@@ -47,7 +47,7 @@ const products = [
     slug: "orchidea-luxury-milano",
     price: "119 €",
     image:
-      "/images/orchidea-luxury-milano.jpg",
+      "/images/orchidea-luxury-milano.webp",
     description:
       "Una proposta premium e sofisticata per un regalo davvero indimenticabile.",
   },
@@ -88,7 +88,8 @@ export default function OrchideeCategoryPage() {
                     src={product.image}
                     alt={`${product.name} con consegna a Milano`}
                     className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
+                  loading="lazy"
+                   title={`${product.name} - fiori e bouquet a Milano`} />
                 </div>
 
                 <div className="p-6">

@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
+import { languageAlternates } from "@/lib/i18n";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SeoFaq from "@/components/SeoFaq";
+import ReviewsSection from "@/components/ReviewsSection";
+import BenefitsSection from "@/components/BenefitsSection";
 import { formatEur, getSizePrices } from "@/data/pricing";
 
 const featuredProducts = [
@@ -10,7 +16,7 @@ const featuredProducts = [
     category: "Bouquet",
     price: 59,
     image:
-      "/images/bouquet-eleganza.jpg",
+      "/images/bouquet-eleganza.webp",
     description:
       "Un bouquet elegante e raffinato con fiori freschi selezionati.",
   },
@@ -20,7 +26,7 @@ const featuredProducts = [
     category: "Rose",
     price: 79,
     image:
-      "/images/rose-rosse-premium.jpg",
+      "/images/rose-rosse-premium.webp",
     description:
       "Rose rosse premium per anniversari, sorprese romantiche e occasioni speciali.",
   },
@@ -30,7 +36,7 @@ const featuredProducts = [
     category: "Bouquet",
     price: 49,
     image:
-      "/images/bouquet-primavera.jpg",
+      "/images/bouquet-primavera.webp",
     description:
       "Un bouquet luminoso e colorato, perfetto per regalare un sorriso.",
   },
@@ -40,7 +46,7 @@ const featuredProducts = [
     category: "Peonie",
     price: 89,
     image:
-      "/images/peonie-rosa.jpg",
+      "/images/peonie-rosa.webp",
     description:
       "Peonie delicate e romantiche per un regalo elegante e raffinato.",
   },
@@ -50,7 +56,7 @@ const featuredProducts = [
     category: "Tulipani",
     price: 54,
     image:
-      "/images/tulipani-colorati.jpg",
+      "/images/tulipani-colorati.webp",
     description:
       "Tulipani colorati e luminosi per portare allegria in ogni occasione.",
   },
@@ -60,7 +66,7 @@ const featuredProducts = [
     category: "Girasoli",
     price: 52,
     image:
-      "/images/girasoli-milano.jpg",
+      "/images/girasoli-milano.webp",
     description:
       "Un bouquet solare di girasoli per un regalo pieno di energia.",
   },
@@ -88,6 +94,15 @@ const flowerCategories = [
     href: "/fiori/orchidee",
   },
 ];
+
+export const metadata: Metadata = {
+  title: { absolute: "Consegna Fiori Milano | Bouquet a Domicilio dal 2018" },
+  description: "Dal 2018 fiori freschi e bouquet a domicilio a Milano. Ordina rose, peonie e composizioni online: consegna in giornata su richiesta e secondo disponibilità.",
+  alternates: {
+    canonical: "/",
+    languages: languageAlternates("/"),
+  },
+};
 
 export default function Home() {
   return (
@@ -133,7 +148,7 @@ export default function Home() {
             height={1200}
             priority
             unoptimized
-            src="/images/hero-home.jpg"
+            src="/images/hero-home.webp"
             alt="Bouquet colorato di fiori freschi con consegna a Milano"
             className="aspect-[4/5] h-full w-full object-cover"
           />
@@ -194,7 +209,8 @@ export default function Home() {
                     src={product.image}
                     alt={`${product.name} con consegna a Milano`}
                     className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
+                  loading="lazy"
+                   title={`${product.name} - fiori e bouquet a Milano`} />
                 </div>
 
                 <div className="p-6">
@@ -282,55 +298,16 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-black text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4">
-          <div>
-            <Link href="/" className="text-xl font-bold">
-              Consegna Fiori Milano
-            </Link>
-
-            <p className="mt-4 text-sm leading-6 text-white/60">
-              Bouquet e fiori con consegna a domicilio a Milano.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-bold">Fiori</h3>
-
-            <div className="mt-4 flex flex-col gap-3 text-sm text-white/60">
-              <Link href="/fiori/rose">Rose</Link>
-              <Link href="/fiori/peonie">Peonie</Link>
-              <Link href="/fiori/tulipani">Tulipani</Link>
-              <Link href="/fiori/girasoli">Girasoli</Link>
-              <Link href="/fiori/orchidee">Orchidee</Link>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-bold">Servizio</h3>
-
-            <div className="mt-4 flex flex-col gap-3 text-sm text-white/60">
-              <Link href="/bouquet">Bouquet</Link>
-              <Link href="/consegna-fiori-milano">
-                Consegna fiori Milano
-              </Link>
-              <Link href="/come-funziona">Come funziona</Link>
-              <Link href="/servizi/consegna-fiori-in-giornata-milano">Consegna in giornata</Link>
-              <Link href="/servizi/fiorista-milano">Fiorista Milano</Link>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-bold">Contatti</h3>
-
-            <div className="mt-4 text-sm text-white/60">
-              <a href="mailto:info@consegnafiorimilano.it">
-                info@consegnafiorimilano.it
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <section className="border-t border-black/10 py-16"><div className="mx-auto max-w-6xl px-6"><h2 className="text-3xl font-bold">Consegna di fiori a Milano dal 2018</h2><p className="mt-4 max-w-3xl leading-8 text-neutral-600">Dal 2018 consegniamo fiori freschi a domicilio a Milano e provincia, secondo disponibilità. Un pensiero speciale per compleanni, anniversari o semplicemente per dire grazie.</p><div className="mt-5 flex flex-wrap gap-4"><Link href="/chi-siamo" className="underline">Chi siamo</Link><Link href="/servizi/consegna-fiori-in-giornata-milano" className="underline">Consegna in giornata</Link><Link href="/zone-consegna" className="underline">Zone di Milano</Link></div></div></section>
+      <BenefitsSection/>
+      <section className="mx-auto max-w-7xl px-6 py-16"><h2 className="text-3xl font-bold">Fiori per ogni occasione e quartiere di Milano</h2>
+        <h3 className="mt-8 text-xl font-bold">Occasioni speciali</h3><div className="mt-4 flex flex-wrap gap-3">{[
+          ["Compleanno","/bouquet"],["Anniversario","/prodotti/bouquet-anniversario"],["Amore e romanticismo","/fiori/rose"],["Laurea","/bouquet"],["Regali aziendali","/consegna-fiori-milano"]
+        ].map(([label,url])=><Link className="rounded-full border px-5 py-2" key={label} href={url}>{label}</Link>)}</div>
+        <h3 className="mt-8 text-xl font-bold">Zone di consegna</h3><div className="mt-4 flex flex-wrap gap-3">{["Centro Storico","Brera","Porta Nuova","Navigli","Isola","CityLife","Porta Romana","San Siro"].map(label=><Link className="rounded-full border px-5 py-2" key={label} href="/zone-consegna">{label}</Link>)}</div>
+      </section><ReviewsSection compact />
+      <SeoFaq />
+      <Footer />
     </main>
   );
 }

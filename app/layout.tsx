@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 import WhatsAppShare from "@/components/WhatsAppShare";
+import { business } from "@/lib/business";
 import { locales } from "@/lib/i18n";
 import { SEO_KEYWORDS, SITE_NAME, SITE_URL, WHATSAPP_NUMBER, BUSINESS_EMAIL } from "@/lib/site";
 
@@ -17,17 +18,6 @@ export const metadata: Metadata = {
   keywords: SEO_KEYWORDS,
   applicationName: SITE_NAME,
   category: "flower delivery",
-  alternates: {
-    languages: {
-      "it-IT": "/",
-      "en": "/en",
-      "de": "/de",
-      "es": "/es",
-      "fr": "/fr",
-      "ru": "/ru",
-      "x-default": "/",
-    },
-  },
   openGraph: {
     title: "Consegna Fiori Milano | Fiori a Domicilio",
     description: "Bouquet e fiori freschi con consegna a domicilio a Milano.",
@@ -36,13 +26,13 @@ export const metadata: Metadata = {
     locale: "it_IT",
     alternateLocale: ["en_GB", "de_DE", "es_ES", "fr_FR", "ru_RU"],
     type: "website",
-    images: [{ url: "/images/hero-home.jpg", width: 1200, height: 1500, alt: "Bouquet di fiori freschi con consegna a Milano" }],
+    images: [{ url: "/images/hero-home.webp", width: 1200, height: 1500, alt: "Bouquet di fiori freschi con consegna a Milano" }],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_NAME,
     description: "Ordina fiori online con consegna a domicilio a Milano.",
-    images: ["/images/hero-home.jpg"],
+    images: ["/images/hero-home.webp"],
   },
   robots: {
     index: true,
@@ -85,6 +75,9 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           { "@type": "AdministrativeArea", name: "Città metropolitana di Milano" },
         ],
         priceRange: "€€",
+        foundingDate: business.founded,
+        ...(business.latitude !== undefined && business.longitude !== undefined ? {geo:{"@type":"GeoCoordinates",latitude:business.latitude,longitude:business.longitude}} : {}),
+        ...(business.openingHours ? {openingHours:business.openingHours} : {}),
         currenciesAccepted: "EUR",
         paymentAccepted: "Credit Card, Apple Pay, Google Pay",
       },

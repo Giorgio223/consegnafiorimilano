@@ -20,7 +20,7 @@ const products = [
     slug: "peonie-rosa",
     price: "89 €",
     image:
-      "/images/peonie-rosa.jpg",
+      "/images/peonie-rosa.webp",
     description:
       "Peonie rosa delicate e romantiche per un regalo elegante e speciale.",
   },
@@ -29,7 +29,7 @@ const products = [
     slug: "peonie-bianche",
     price: "95 €",
     image:
-      "/images/peonie-bianche.jpg",
+      "/images/peonie-bianche.webp",
     description:
       "Una composizione luminosa di peonie bianche dal carattere raffinato.",
   },
@@ -38,7 +38,7 @@ const products = [
     slug: "bouquet-peonie-premium",
     price: "109 €",
     image:
-      "/images/bouquet-peonie-premium.jpg",
+      "/images/bouquet-peonie-premium.webp",
     description:
       "Un bouquet importante di peonie selezionate per occasioni speciali.",
   },
@@ -47,7 +47,7 @@ const products = [
     slug: "peonie-romantiche",
     price: "99 €",
     image:
-      "/images/peonie-romantiche.jpg",
+      "/images/peonie-romantiche.webp",
     description:
       "Una composizione morbida e romantica, perfetta per sorprendere.",
   },
@@ -88,7 +88,8 @@ export default function PeonieCategoryPage() {
                     src={product.image}
                     alt={`${product.name} con consegna a Milano`}
                     className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
+                  loading="lazy"
+                   title={`${product.name} - fiori e bouquet a Milano`} />
                 </div>
 
                 <div className="p-6">

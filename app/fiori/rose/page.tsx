@@ -20,7 +20,7 @@ const products = [
     slug: "12-rose-rosse-premium",
     price: "69 €",
     image:
-      "/images/12-rose-rosse-premium.jpg",
+      "/images/12-rose-rosse-premium.webp",
     description:
       "Dodici rose rosse selezionate per un regalo romantico ed elegante.",
   },
@@ -29,7 +29,7 @@ const products = [
     slug: "24-rose-rosse",
     price: "119 €",
     image:
-      "/images/24-rose-rosse.jpg",
+      "/images/24-rose-rosse.webp",
     description:
       "Un bouquet importante di rose rosse per un gesto indimenticabile.",
   },
@@ -38,7 +38,7 @@ const products = [
     slug: "rose-rosa-elegance",
     price: "74 €",
     image:
-      "/images/rose-rosa-elegance.jpg",
+      "/images/rose-rosa-elegance.webp",
     description:
       "Rose rosa delicate e raffinate per compleanni e occasioni speciali.",
   },
@@ -47,7 +47,7 @@ const products = [
     slug: "bouquet-rose-romantico",
     price: "89 €",
     image:
-      "/images/bouquet-rose-romantico.jpg",
+      "/images/bouquet-rose-romantico.webp",
     description:
       "Una composizione romantica di rose pensata per sorprendere.",
   },
@@ -88,7 +88,8 @@ export default function RoseCategoryPage() {
                     src={product.image}
                     alt={`${product.name} con consegna a Milano`}
                     className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
+                  loading="lazy"
+                   title={`${product.name} - fiori e bouquet a Milano`} />
                 </div>
 
                 <div className="p-6">

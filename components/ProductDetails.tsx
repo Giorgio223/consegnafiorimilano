@@ -1,4 +1,6 @@
 "use client";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { productEditorial } from "@/lib/product-copy";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -46,6 +48,16 @@ export default function ProductDetails({ product, locale = "it" }: ProductDetail
     features: ["Fleurs fraîches", "Composition soignée", "Message personnel", "Livraison à Milan"],
     sizeDesc: { Piccolo: "Bouquet compact.", Medio: "Taille équilibrée.", Premium: "Composition plus généreuse." },
   } : null;
+  const editorial = productEditorial(product, locale);
+  const actions:Record<Locale,{reduce:string;increase:string;continue:string;small:string;medium:string;premium:string}>={
+    it:{reduce:"Riduci quantità",increase:"Aumenta quantità",continue:"Continua a scegliere",small:"Piccolo",medium:"Medio",premium:"Premium"},
+    en:{reduce:"Reduce quantity",increase:"Increase quantity",continue:"Continue shopping",small:"Small",medium:"Medium",premium:"Premium"},
+    de:{reduce:"Anzahl verringern",increase:"Anzahl erhöhen",continue:"Weiter einkaufen",small:"Klein",medium:"Mittel",premium:"Premium"},
+    es:{reduce:"Reducir cantidad",increase:"Aumentar cantidad",continue:"Seguir comprando",small:"Pequeño",medium:"Mediano",premium:"Premium"},
+    fr:{reduce:"Diminuer la quantité",increase:"Augmenter la quantité",continue:"Continuer les achats",small:"Petit",medium:"Moyen",premium:"Premium"},
+    ru:{reduce:"Уменьшить количество",increase:"Увеличить количество",continue:"Продолжить покупки",small:"Маленький",medium:"Средний",premium:"Премиум"}
+  };
+  const a=actions[locale];
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState<ProductSize>("Medio");
   const prices = useMemo(() => getSizePrices(product.price), [product.price]);
@@ -54,14 +66,15 @@ export default function ProductDetails({ product, locale = "it" }: ProductDetail
   const totalPrice = productsTotal + DELIVERY_FEE;
 
   return (
-    <section className="mx-auto grid max-w-7xl gap-14 px-6 py-16 lg:grid-cols-2">
+    <><Breadcrumbs locale={locale} items={[{label:locale === "it" ? "Bouquet" : locale === "ru" ? "Букеты" : locale === "de" ? "Blumensträuße" : locale === "es" ? "Ramos" : "Bouquets",path:"/bouquet"},{label:product.name,path:`/prodotti/${product.slug}`}]} /><section className="mx-auto grid max-w-7xl gap-14 px-6 py-16 lg:grid-cols-2">
       <div>
         <div className="overflow-hidden rounded-[2.5rem] bg-white">
           <Image
             width={1200}
             height={1200}
             src={product.image}
-            alt={`${product.name} con consegna a domicilio a Milano`}
+            alt={`${product.name} - ${({it:"bouquet con consegna a Milano",en:"bouquet delivered in Milan",de:"Blumenstrauß mit Lieferung in Mailand",es:"ramo con entrega en Milán",fr:"bouquet livré à Milan",ru:"букет с доставкой по Милану"} as Record<Locale,string>)[locale]}`}
+            title={`${product.name} - ${({it:"fiori freschi a Milano",en:"fresh flowers in Milan",de:"frische Blumen in Mailand",es:"flores frescas en Milán",fr:"fleurs fraîches à Milan",ru:"свежие цветы в Милане"} as Record<Locale,string>)[locale]}`}
             className="aspect-square w-full object-cover"
             priority
           />
@@ -71,7 +84,7 @@ export default function ProductDetails({ product, locale = "it" }: ProductDetail
       <div className="lg:sticky lg:top-28 lg:self-start">
         <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#8c6f5a]">{product.category}</p>
         <h1 className="mt-4 text-5xl font-bold tracking-tight">{product.name}</h1>
-        <p className="mt-5 text-3xl font-semibold">Da {formatEur(prices.Piccolo)}</p>
+        <p className="mt-5 text-3xl font-semibold">{({it:"Da",en:"From",de:"Ab",es:"Desde",fr:"À partir de",ru:"От"} as Record<Locale,string>)[locale]} {formatEur(prices.Piccolo)}</p>
         <p className="mt-7 text-lg leading-8 text-neutral-600">{product.description}</p>
 
         <div className="mt-8">
@@ -84,7 +97,7 @@ export default function ProductDetails({ product, locale = "it" }: ProductDetail
                 onClick={() => setSize(option)}
                 className={`rounded-2xl border p-4 text-left transition ${size === option ? "border-black bg-black text-white" : "border-black/15 bg-white hover:border-black"}`}
               >
-                <span className="block font-bold">{option}</span>
+                <span className="block font-bold">{option === "Piccolo" ? a.small : option === "Medio" ? a.medium : a.premium}</span>
                 <span className={`mt-1 block text-sm ${size === option ? "text-white/70" : "text-neutral-500"}`}>{formatEur(prices[option])}</span>
               </button>
             ))}
@@ -99,12 +112,13 @@ export default function ProductDetails({ product, locale = "it" }: ProductDetail
           </div>
         </div>
 
+        <section className="mt-8 rounded-[2rem] border border-black/10 p-6"><h2 className="text-2xl font-bold">{editorial.compositionTitle}</h2><p className="mt-3 leading-7 text-neutral-600">{editorial.composition}</p><h3 className="mt-5 font-bold">{editorial.stemsTitle}</h3><p className="mt-2 text-neutral-600">{editorial.stems}</p><h3 className="mt-5 font-bold">{editorial.occasionTitle}</h3><p className="mt-2 text-neutral-600">{editorial.occasion}</p><h3 className="mt-5 font-bold">{editorial.careTitle}</h3><p className="mt-2 text-neutral-600">{editorial.care}</p><h3 className="mt-5 font-bold">{editorial.deliveryTitle}</h3><p className="mt-2 text-neutral-600">{editorial.delivery}</p></section>
         <div className="mt-8">
           <p className="mb-3 text-sm font-semibold">{copy?.quantity || "Quantità"}</p>
           <div className="flex w-fit items-center overflow-hidden rounded-full border border-black/15 bg-white">
-            <button type="button" onClick={() => setQuantity((current) => Math.max(1, current - 1))} className="flex h-14 w-14 items-center justify-center text-2xl transition hover:bg-black hover:text-white" aria-label="Riduci quantità">−</button>
+            <button type="button" onClick={() => setQuantity((current) => Math.max(1, current - 1))} className="flex h-14 w-14 items-center justify-center text-2xl transition hover:bg-black hover:text-white" aria-label={a.reduce}>−</button>
             <div className="flex h-14 min-w-16 items-center justify-center border-x border-black/15 text-lg font-bold">{quantity}</div>
-            <button type="button" onClick={() => setQuantity((current) => Math.min(10, current + 1))} className="flex h-14 w-14 items-center justify-center text-2xl transition hover:bg-black hover:text-white" aria-label="Aumenta quantità">+</button>
+            <button type="button" onClick={() => setQuantity((current) => Math.min(10, current + 1))} className="flex h-14 w-14 items-center justify-center text-2xl transition hover:bg-black hover:text-white" aria-label={a.increase}>+</button>
           </div>
         </div>
 
@@ -118,8 +132,8 @@ export default function ProductDetails({ product, locale = "it" }: ProductDetail
           {copy?.proceed || "Procedi all\'ordine"} — {formatEur(totalPrice)}
         </Link>
 
-        <Link href={withLocale("/bouquet", locale)} className="mt-4 block w-full rounded-full border border-black px-8 py-5 text-center font-semibold transition hover:bg-black hover:text-white">Continua a scegliere</Link>
+        <Link href={withLocale("/bouquet", locale)} className="mt-4 block w-full rounded-full border border-black px-8 py-5 text-center font-semibold transition hover:bg-black hover:text-white">{a.continue}</Link>
       </div>
-    </section>
+    </section></>
   );
 }

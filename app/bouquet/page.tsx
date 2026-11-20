@@ -66,7 +66,8 @@ export default function BouquetPage() {
                     src={product.image}
                     alt={`${product.name} con consegna a domicilio a Milano`}
                     className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
+                  loading="lazy"
+                   title={`${product.name} - fiori e bouquet a Milano`} />
                 </div>
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-5">

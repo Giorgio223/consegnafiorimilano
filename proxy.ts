@@ -50,7 +50,7 @@ for (const [locale, domains] of Object.entries(domainGroups)) {
 
 
 // Adds a trustworthy, per-request language header for the root HTML layout.
-// Domain 301 redirects are served by Vercel configuration, not this proxy.
+// Redirect alternative domains to canonical language URLs before normal page handling.
 export function proxy(request: NextRequest) {
 
   const hostname = request.nextUrl.hostname.toLowerCase();

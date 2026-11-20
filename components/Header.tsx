@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { trustText } from "@/lib/seo-content";
 import { localeFromPath, stripLocale, locales, ui, withLocale, type Locale } from "@/lib/i18n";
 
 const categoryPaths = ["/fiori/rose", "/fiori/peonie", "/fiori/tulipani", "/fiori/girasoli", "/fiori/orchidee"];
@@ -74,6 +75,8 @@ export default function Header({ overrideLocale }: { overrideLocale?: Locale } =
 
           <Link href={local("/come-funziona")} className="transition hover:opacity-60">{copy.how}</Link>
           <Link href={local("/consegna-fiori-milano")} className="transition hover:opacity-60">{copy.delivery}</Link>
+          <Link href={local("/recensioni")} className="transition hover:opacity-60">{trustText[locale].reviews}</Link>
+          <Link href={local("/chi-siamo")} className="transition hover:opacity-60">{trustText[locale].about}</Link>
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
@@ -118,6 +121,8 @@ export default function Header({ overrideLocale }: { overrideLocale?: Locale } =
             ))}
             <Link href={local("/come-funziona")} onClick={() => setMobileOpen(false)}>{copy.how}</Link>
             <Link href={local("/consegna-fiori-milano")} onClick={() => setMobileOpen(false)}>{copy.delivery}</Link>
+            <Link href={local("/recensioni")} onClick={() => setMobileOpen(false)}>{trustText[locale].reviews}</Link>
+            <Link href={local("/chi-siamo")} onClick={() => setMobileOpen(false)}>{trustText[locale].about}</Link>
           </div>
         </nav>
       )}

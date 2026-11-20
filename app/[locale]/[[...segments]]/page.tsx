@@ -3,6 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
+import SeoFaq from "@/components/SeoFaq";
+import ReviewsSection from "@/components/ReviewsSection";
+import BenefitsSection from "@/components/BenefitsSection";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import AboutSection from "@/components/AboutSection";
+import { trustText } from "@/lib/seo-content";
 import Footer from "@/components/Footer";
 import ProductDetails from "@/components/ProductDetails";
 import { products, getProduct, getProductsByCategory } from "@/data/products";
@@ -84,16 +90,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = copy[locale];
   const path = segments.join("/");
   // Do not advertise nonexistent localized routes as indexable pages.
-  const validRoute = segments.length === 0 ||
+  const validRoute = (segments.length === 1 && ["chi-siamo","recensioni"].includes(segments[0])) || segments.length === 0 ||
     (segments.length === 1 && ["bouquet", "come-funziona", "consegna-fiori-milano"].includes(segments[0])) ||
     (segments.length === 2 && segments[0] === "fiori" && Boolean(categoryMap[segments[1]])) ||
     (segments.length === 2 && segments[0] === "prodotti" && Boolean(getProduct(segments[1])));
   if (!validRoute) return { robots: { index: false, follow: false } };
   const canonical = `/${locale}${path ? `/${path}` : ""}`;
   let title: string = t.homeTitle;
-  let description: string = t.homeDescription;
+  let description: string = `${t.homeDescription} ${trustText[locale].since}`;
 
-  if (segments[0] === "bouquet") {
+  if (segments[0] === "chi-siamo") { title = trustText[locale].about; description = trustText[locale].since; }
+  else if (segments[0] === "recensioni") { title = trustText[locale].reviews; description = trustText[locale].reviewsLead; }
+  else if (segments[0] === "bouquet") {
     title = t.bouquetTitle;
     description = t.bouquetIntro;
   } else if (segments[0] === "fiori" && segments[1] && categoryMap[segments[1]]) {
@@ -122,7 +130,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       canonical,
       languages: languageAlternates(italianPath),
     },
-    openGraph: { title, description, url: canonical, locale: ({ en: "en_GB", de: "de_DE", es: "es_ES", fr: "fr_FR", ru: "ru_RU" } as const)[locale], images: [{ url: "/images/hero-home.jpg" }] },
+    openGraph: { title, description, url: canonical, locale: ({ en: "en_GB", de: "de_DE", es: "es_ES", fr: "fr_FR", ru: "ru_RU" } as const)[locale], images: [{ url: "/images/hero-home.webp" }] },
   };
 }
 
@@ -132,7 +140,8 @@ function ProductGrid({ items, locale }: { items: typeof products; locale: Exclud
     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {items.map((product) => (
         <article key={product.slug} className="overflow-hidden rounded-[2rem] border border-black/10 bg-white">
-          <Image src={product.image} alt={`${product.name} ${t.productSuffix}`} width={1000} height={1000} className="aspect-square w-full object-cover" />
+          <Image src={product.image} alt={`${product.name} ${t.productSuffix}`} width={1000} height={1000} className="aspect-square w-full object-cover" loading="lazy"
+                   title={`${product.name} - fiori e bouquet a Milano`} />
           <div className="p-6">
             <div className="flex items-start justify-between gap-4"><h2 className="text-2xl font-bold">{product.name}</h2><span className="whitespace-nowrap font-semibold">{t.from} {formatEur(getSizePrices(product.price).Piccolo)}</span></div>
             <p className="mt-4 leading-7 text-neutral-600">{`${t.categoryTitle(ui[locale].categories.find((_, i) => ["Rose", "Peonie", "Tulipani", "Girasoli", "Orchidee"][i] === product.category)?.[0] || product.category)}.`}</p>
@@ -149,6 +158,8 @@ export default async function LocalizedPage({ params }: { params: Promise<{ loca
   const locale = localeData(rawLocale);
   const t = copy[locale];
 
+  if (segments.length===1 && segments[0]==="chi-siamo") return <main><Header/><Breadcrumbs locale={locale} items={[{label:trustText[locale].about,path:"/chi-siamo"}]}/><AboutSection locale={locale}/><Footer/></main>;
+  if (segments.length===1 && segments[0]==="recensioni") return <main><Header/><Breadcrumbs locale={locale} items={[{label:trustText[locale].reviews,path:"/recensioni"}]}/><h1 className="mx-auto max-w-6xl px-6 pt-14 text-4xl font-bold">{trustText[locale].reviews}</h1><ReviewsSection locale={locale}/><Footer/></main>;
   if (segments[0] === "prodotti" && segments[1]) {
     const product = getProduct(segments[1]);
     if (!product) notFound();
@@ -185,6 +196,7 @@ export default async function LocalizedPage({ params }: { params: Promise<{ loca
   return (
     <main className="min-h-screen bg-white text-[#1f1f1f]">
       <Header />
+      {segments.length>0 && <Breadcrumbs locale={locale} items={[{label:heading,path:`/${segments.join("/")}`}]} />}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
       <section className="border-b border-black/10">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center">
@@ -199,6 +211,8 @@ export default async function LocalizedPage({ params }: { params: Promise<{ loca
       ) : (
         <section className="py-20"><div className="mx-auto grid max-w-5xl gap-6 px-6 md:grid-cols-2"><article className="rounded-[2rem] border border-black/10 p-8"><h2 className="text-3xl font-bold">{t.deliveryTitle}</h2><p className="mt-5 text-lg leading-8 text-neutral-600">{t.deliveryText}</p></article><article className="rounded-[2rem] border border-black/10 p-8"><h2 className="text-3xl font-bold">{t.howTitle}</h2><p className="mt-5 text-lg leading-8 text-neutral-600">{t.howText}</p></article></div></section>
       )}
+      {segments.length===0 && <BenefitsSection locale={locale}/>}
+      <SeoFaq locale={locale} />
       <Footer />
     </main>
   );

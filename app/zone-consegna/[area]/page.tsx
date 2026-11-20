@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ area: str
     description: area.description,
     keywords: area.keywords,
     alternates: { canonical },
-    openGraph: { title: area.title, description: area.description, url: canonical, locale: "it_IT", type: "website", images: [{url:"/images/consegna-fiori-milano.jpg",alt:`Bouquet e consegna fiori ${area.name}`}] },
+    openGraph: { title: area.title, description: area.description, url: canonical, locale: "it_IT", type: "website", images: [{url:"/images/consegna-fiori-milano.webp",alt:`Bouquet e consegna fiori ${area.name}`}] },
   };
 }
 
@@ -59,7 +59,8 @@ export default async function AreaPage({ params }: { params: Promise<{ area: str
             <p className="mt-6 text-lg leading-8 text-neutral-700">{area.intro}</p>
             <div className="mt-8 flex flex-wrap gap-3"><Link href="/bouquet" className="rounded-full bg-black px-7 py-4 font-semibold text-white">Scegli i bouquet</Link><a href="https://wa.me/393793718598?text=Ciao%2C%20vorrei%20verificare%20una%20consegna%20fiori" className="rounded-full border border-black px-7 py-4 font-semibold">Verifica su WhatsApp</a></div>
           </div>
-          <Image src="/images/consegna-fiori-milano.jpg" width={1200} height={1000} alt={`Bouquet e fiori con consegna nella zona ${area.name}`} className="h-auto w-full rounded-[2rem] object-cover" />
+          <Image src="/images/consegna-fiori-milano.webp" width={1200} height={1000} alt={`Bouquet e fiori con consegna nella zona ${area.name}`} className="h-auto w-full rounded-[2rem] object-cover" loading="lazy"
+                  />
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 py-16">
@@ -71,7 +72,8 @@ export default async function AreaPage({ params }: { params: Promise<{ area: str
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-2"><div className="rounded-3xl bg-neutral-50 p-8"><h2 className="text-2xl font-bold">Indicazioni per {area.name}</h2><p className="mt-4 leading-8 text-neutral-700">{area.context}</p></div><div className="rounded-3xl bg-neutral-50 p-8"><h2 className="text-2xl font-bold">Tempi e disponibilità</h2><p className="mt-4 leading-8 text-neutral-700">{area.logistics}</p></div></div>
       </section>
-      <section className="border-y border-black/10 bg-[#faf9f7] py-16"><div className="mx-auto max-w-6xl px-6"><h2 className="text-3xl font-bold">Fiori da regalare</h2><p className="mt-3 text-neutral-600">Proposte dal nostro catalogo online; disponibilità da verificare per la data scelta.</p><div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{featured.map(product => <Link href={`/prodotti/${product.slug}`} key={product.slug} className="overflow-hidden rounded-3xl bg-white shadow-sm transition hover:shadow-md"><Image src={product.image} width={560} height={460} alt={product.name} className="aspect-[5/4] w-full object-cover"/><div className="p-5"><h3 className="font-bold">{product.name}</h3><p className="mt-2 text-sm text-neutral-600">Da €{getSizePrices(product.price).Piccolo.toFixed(2).replace(".", ",")}</p><span className="mt-3 inline-block text-sm font-semibold underline">Vedi il bouquet</span></div></Link>)}</div></div></section>
+      <section className="border-y border-black/10 bg-[#faf9f7] py-16"><div className="mx-auto max-w-6xl px-6"><h2 className="text-3xl font-bold">Fiori da regalare</h2><p className="mt-3 text-neutral-600">Proposte dal nostro catalogo online; disponibilità da verificare per la data scelta.</p><div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{featured.map(product => <Link href={`/prodotti/${product.slug}`} key={product.slug} className="overflow-hidden rounded-3xl bg-white shadow-sm transition hover:shadow-md"><Image src={product.image} width={560} height={460} alt={product.name} className="aspect-[5/4] w-full object-cover"loading="lazy"
+                   title={`${product.name} - fiori e bouquet a Milano`} /><div className="p-5"><h3 className="font-bold">{product.name}</h3><p className="mt-2 text-sm text-neutral-600">Da €{getSizePrices(product.price).Piccolo.toFixed(2).replace(".", ",")}</p><span className="mt-3 inline-block text-sm font-semibold underline">Vedi il bouquet</span></div></Link>)}</div></div></section>
       <section className="mx-auto max-w-4xl px-6 py-16"><h2 className="text-3xl font-bold">Domande frequenti su {area.name}</h2><div className="mt-8 space-y-6">{faq.map(item=><div key={item.question}><h3 className="text-xl font-semibold">{item.question}</h3><p className="mt-2 leading-7 text-neutral-600">{item.answer}</p></div>)}</div></section>
       <section className="border-t border-black/10 py-14"><div className="mx-auto max-w-6xl px-6"><h2 className="text-2xl font-bold">Altre zone di consegna</h2><div className="mt-6 flex flex-wrap gap-3">{deliveryAreas.filter(other=>other.slug!==area.slug).map(other=><Link className="rounded-full border border-black/15 px-5 py-3 font-medium hover:bg-neutral-50" key={other.slug} href={deliveryAreaUrl(other)}>{other.name}</Link>)}<Link className="rounded-full border border-black/15 px-5 py-3 font-medium hover:bg-neutral-50" href="/zone-consegna">Tutte le zone</Link></div></div></section>
     </article>

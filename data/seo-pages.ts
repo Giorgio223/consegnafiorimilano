@@ -12,7 +12,7 @@ export type SeoLandingPage = {
 export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "consegna-fiori-in-giornata-milano",
-    title: "Consegna Fiori in Giornata Milano | Bouquet a Domicilio",
+    title: "Consegna Fiori in Giornata Milano | Ordina Bouquet Online",
     eyebrow: "Consegna in giornata a Milano",
     description: "Richiedi la consegna fiori in giornata a Milano per bouquet, rose e composizioni selezionate. Disponibilità e orari vengono confermati in base alla zona.",
     h1: "Consegna fiori in giornata a Milano",
@@ -28,7 +28,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "fiorista-milano",
-    title: "Fiorista Milano Online | Bouquet e Fiori a Domicilio",
+    title: "Fiorista Milano | Bouquet Freschi a Domicilio",
     eyebrow: "Fiorista online a Milano",
     description: "Cerchi un fiorista a Milano? Scopri bouquet, rose, peonie, tulipani e composizioni ordinabili online con consegna a domicilio.",
     h1: "Fiorista a Milano per bouquet e fiori a domicilio",
@@ -61,7 +61,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "consegna-fiori-h24-milano",
-    title: "Consegna Fiori H24 Milano | Ordini Online 24 Ore su 24",
+    title: "Consegna Fiori H24 Milano | Ordini Online 24 Ore 24 Ore su 24",
     eyebrow: "Ordini online H24",
     description: "Ordina fiori online 24 ore su 24 per consegne a Milano. Gli ordini possono essere effettuati H24; la fascia di consegna viene confermata in base alla disponibilità.",
     h1: "Ordina fiori online H24 per consegne a Milano",

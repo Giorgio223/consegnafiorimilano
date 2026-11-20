@@ -20,7 +20,7 @@ const products = [
     slug: "girasoli-milano",
     price: "52 €",
     image:
-      "/images/girasoli-milano.jpg",
+      "/images/girasoli-milano.webp",
     description:
       "Un bouquet solare di girasoli freschi per portare energia e allegria.",
   },
@@ -29,7 +29,7 @@ const products = [
     slug: "bouquet-girasoli-premium",
     price: "69 €",
     image:
-      "/images/bouquet-girasoli-premium.jpg",
+      "/images/bouquet-girasoli-premium.webp",
     description:
       "Una composizione importante di girasoli selezionati per un regalo speciale.",
   },
@@ -38,7 +38,7 @@ const products = [
     slug: "girasoli-fiori-colorati",
     price: "64 €",
     image:
-      "/images/girasoli-fiori-colorati.jpg",
+      "/images/girasoli-fiori-colorati.webp",
     description:
       "Girasoli e fiori colorati per una composizione vivace e luminosa.",
   },
@@ -47,7 +47,7 @@ const products = [
     slug: "bouquet-sole-milano",
     price: "74 €",
     image:
-      "/images/bouquet-sole-milano.jpg",
+      "/images/bouquet-sole-milano.webp",
     description:
       "Un bouquet allegro e luminoso pensato per sorprendere con originalità.",
   },
@@ -88,7 +88,8 @@ export default function GirasoliCategoryPage() {
                     src={product.image}
                     alt={`${product.name} con consegna a Milano`}
                     className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
+                  loading="lazy"
+                   title={`${product.name} - fiori e bouquet a Milano`} />
                 </div>
 
                 <div className="p-6">

@@ -6,6 +6,10 @@ export type Product = {
   image: string;
   shortDescription: string;
   description: string;
+  compositionNotes?: string;
+  stemsNotes?: string;
+  occasionNotes?: string;
+  careNotes?: string;
 };
 
 export const products: Product[] = [
@@ -15,7 +19,7 @@ export const products: Product[] = [
     price: 59,
     category: "Bouquet",
     image:
-      "/images/bouquet-eleganza.jpg",
+      "/images/bouquet-eleganza.webp",
     shortDescription:
       "Un bouquet elegante e raffinato con fiori freschi selezionati.",
     description:
@@ -27,7 +31,7 @@ export const products: Product[] = [
     price: 79,
     category: "Rose",
     image:
-      "/images/rose-rosse-premium.jpg",
+      "/images/rose-rosse-premium.webp",
     shortDescription:
       "Rose rosse premium per anniversari e sorprese romantiche.",
     description:
@@ -39,7 +43,7 @@ export const products: Product[] = [
     price: 49,
     category: "Bouquet",
     image:
-      "/images/bouquet-primavera.jpg",
+      "/images/bouquet-primavera.webp",
     shortDescription:
       "Un bouquet luminoso e colorato, perfetto per regalare un sorriso.",
     description:
@@ -51,7 +55,7 @@ export const products: Product[] = [
     price: 69,
     category: "Bouquet",
     image:
-      "/images/bouquet-romantico.jpg",
+      "/images/bouquet-romantico.webp",
     shortDescription:
       "Una composizione delicata e romantica pensata per sorprendere.",
     description:
@@ -63,7 +67,7 @@ export const products: Product[] = [
     price: 64,
     category: "Bouquet",
     image:
-      "/images/bouquet-bianco.jpg",
+      "/images/bouquet-bianco.webp",
     shortDescription:
       "Fiori bianchi eleganti per occasioni importanti.",
     description:
@@ -75,7 +79,7 @@ export const products: Product[] = [
     price: 55,
     category: "Bouquet",
     image:
-      "/images/bouquet-colorato.jpg",
+      "/images/bouquet-colorato.webp",
     shortDescription:
       "Un mix di colori vivaci per portare energia e allegria.",
     description:
@@ -89,7 +93,7 @@ export const products: Product[] = [
     price: 72,
     category: "Bouquet",
     image:
-      "/images/bouquet-amore-milano.jpg",
+      "/images/bouquet-amore-milano.webp",
     shortDescription:
       "Fiori romantici dai toni delicati per sorprendere una persona speciale.",
     description:
@@ -101,7 +105,7 @@ export const products: Product[] = [
     price: 58,
     category: "Bouquet",
     image:
-      "/images/bouquet-compleanno-felice.jpg",
+      "/images/bouquet-compleanno-felice.webp",
     shortDescription:
       "Un bouquet vivace e festoso per augurare buon compleanno.",
     description:
@@ -113,7 +117,7 @@ export const products: Product[] = [
     price: 62,
     category: "Bouquet",
     image:
-      "/images/bouquet-dolce-sorpresa.jpg",
+      "/images/bouquet-dolce-sorpresa.webp",
     shortDescription:
       "Una composizione morbida e luminosa per una sorpresa inaspettata.",
     description:
@@ -125,7 +129,7 @@ export const products: Product[] = [
     price: 85,
     category: "Bouquet",
     image:
-      "/images/bouquet-milano-chic.jpg",
+      "/images/bouquet-milano-chic.webp",
     shortDescription:
       "Una proposta moderna ed elegante ispirata allo stile milanese.",
     description:
@@ -137,7 +141,7 @@ export const products: Product[] = [
     price: 56,
     category: "Bouquet",
     image:
-      "/images/bouquet-festa.jpg",
+      "/images/bouquet-festa.webp",
     shortDescription:
       "Colori allegri e fiori freschi per festeggiare ogni occasione.",
     description:
@@ -149,7 +153,7 @@ export const products: Product[] = [
     price: 68,
     category: "Bouquet",
     image:
-      "/images/bouquet-rosa-cipria.jpg",
+      "/images/bouquet-rosa-cipria.webp",
     shortDescription:
       "Tonalità rosa delicate per un regalo romantico e raffinato.",
     description:
@@ -161,7 +165,7 @@ export const products: Product[] = [
     price: 61,
     category: "Bouquet",
     image:
-      "/images/bouquet-luce.jpg",
+      "/images/bouquet-luce.webp",
     shortDescription:
       "Fiori chiari e luminosi per portare serenità e bellezza.",
     description:
@@ -173,7 +177,7 @@ export const products: Product[] = [
     price: 76,
     category: "Bouquet",
     image:
-      "/images/bouquet-passione.jpg",
+      "/images/bouquet-passione.webp",
     shortDescription:
       "Una composizione intensa pensata per esprimere emozioni forti.",
     description:
@@ -185,7 +189,7 @@ export const products: Product[] = [
     price: 54,
     category: "Bouquet",
     image:
-      "/images/bouquet-auguri.jpg",
+      "/images/bouquet-auguri.webp",
     shortDescription:
       "Un bouquet fresco e colorato per inviare i tuoi migliori auguri.",
     description:
@@ -197,7 +201,7 @@ export const products: Product[] = [
     price: 73,
     category: "Bouquet",
     image:
-      "/images/bouquet-mamma.jpg",
+      "/images/bouquet-mamma.webp",
     shortDescription:
       "Fiori delicati per dire grazie alla mamma con un gesto speciale.",
     description:
@@ -209,7 +213,7 @@ export const products: Product[] = [
     price: 82,
     category: "Bouquet",
     image:
-      "/images/bouquet-anniversario.jpg",
+      "/images/bouquet-anniversario.webp",
     shortDescription:
       "Una composizione elegante per celebrare una storia importante.",
     description:
@@ -221,7 +225,7 @@ export const products: Product[] = [
     price: 66,
     category: "Bouquet",
     image:
-      "/images/bouquet-sogno-rosa.jpg",
+      "/images/bouquet-sogno-rosa.webp",
     shortDescription:
       "Tonalità rosa e atmosfera romantica in una composizione delicata.",
     description:
@@ -233,7 +237,7 @@ export const products: Product[] = [
     price: 52,
     category: "Bouquet",
     image:
-      "/images/bouquet-buongiorno.jpg",
+      "/images/bouquet-buongiorno.webp",
     shortDescription:
       "Fiori freschi e luminosi per iniziare la giornata con un sorriso.",
     description:
@@ -245,7 +249,7 @@ export const products: Product[] = [
     price: 57,
     category: "Bouquet",
     image:
-      "/images/bouquet-grazie.jpg",
+      "/images/bouquet-grazie.webp",
     shortDescription:
       "Un modo elegante e sincero per dire grazie con i fiori.",
     description:
@@ -257,7 +261,7 @@ export const products: Product[] = [
     price: 63,
     category: "Bouquet",
     image:
-      "/images/bouquet-congratulazioni.jpg",
+      "/images/bouquet-congratulazioni.webp",
     shortDescription:
       "Una composizione festosa per celebrare un successo importante.",
     description:
@@ -269,7 +273,7 @@ export const products: Product[] = [
     price: 60,
     category: "Bouquet",
     image:
-      "/images/bouquet-delicato.jpg",
+      "/images/bouquet-delicato.webp",
     shortDescription:
       "Fiori dai toni morbidi per un regalo semplice e raffinato.",
     description:
@@ -281,7 +285,7 @@ export const products: Product[] = [
     price: 129,
     category: "Bouquet",
     image:
-      "/images/bouquet-luxury-milano.jpg",
+      "/images/bouquet-luxury-milano.webp",
     shortDescription:
       "Una composizione premium di grande presenza e raffinatezza.",
     description:
@@ -293,7 +297,7 @@ export const products: Product[] = [
     price: 45,
     category: "Bouquet",
     image:
-      "/images/bouquet-piccolo-pensiero.jpg",
+      "/images/bouquet-piccolo-pensiero.webp",
     shortDescription:
       "Un gesto semplice e curato per far sapere a qualcuno che lo pensi.",
     description:
@@ -305,7 +309,7 @@ export const products: Product[] = [
     price: 99,
     category: "Bouquet",
     image:
-      "/images/bouquet-grande-emozione.jpg",
+      "/images/bouquet-grande-emozione.webp",
     shortDescription:
       "Un bouquet importante per momenti che meritano di essere ricordati.",
     description:
@@ -317,7 +321,7 @@ export const products: Product[] = [
     price: 67,
     category: "Bouquet",
     image:
-      "/images/bouquet-armonia.jpg",
+      "/images/bouquet-armonia.webp",
     shortDescription:
       "Colori equilibrati e fiori freschi in una composizione armoniosa.",
     description:
@@ -329,7 +333,7 @@ export const products: Product[] = [
     price: 78,
     category: "Bouquet",
     image:
-      "/images/bouquet-eleganza-bianca.jpg",
+      "/images/bouquet-eleganza-bianca.webp",
     shortDescription:
       "Una composizione chiara e sofisticata per un regalo di classe.",
     description:
@@ -341,7 +345,7 @@ export const products: Product[] = [
     price: 65,
     category: "Bouquet",
     image:
-      "/images/bouquet-cuore-felice.jpg",
+      "/images/bouquet-cuore-felice.webp",
     shortDescription:
       "Un bouquet allegro e romantico per regalare un sorriso.",
     description:
@@ -353,7 +357,7 @@ export const products: Product[] = [
     price: 59,
     category: "Bouquet",
     image:
-      "/images/bouquet-festa-della-donna.jpg",
+      "/images/bouquet-festa-della-donna.webp",
     shortDescription:
       "Una proposta luminosa per celebrare una donna speciale.",
     description:
@@ -365,7 +369,7 @@ export const products: Product[] = [
     price: 88,
     category: "Bouquet",
     image:
-      "/images/bouquet-san-valentino.jpg",
+      "/images/bouquet-san-valentino.webp",
     shortDescription:
       "Una composizione romantica pensata per il giorno degli innamorati.",
     description:
@@ -377,7 +381,7 @@ export const products: Product[] = [
     price: 74,
     category: "Bouquet",
     image:
-      "/images/bouquet-sera-speciale.jpg",
+      "/images/bouquet-sera-speciale.webp",
     shortDescription:
       "Fiori eleganti per accompagnare una cena, un invito o una sorpresa.",
     description:
@@ -390,7 +394,7 @@ export const products: Product[] = [
     price: 69,
     category: "Rose",
     image:
-      "/images/12-rose-rosse-premium.jpg",
+      "/images/12-rose-rosse-premium.webp",
     shortDescription:
       "Dodici rose rosse selezionate per un regalo romantico.",
     description:
@@ -402,7 +406,7 @@ export const products: Product[] = [
     price: 119,
     category: "Rose",
     image:
-      "/images/24-rose-rosse.jpg",
+      "/images/24-rose-rosse.webp",
     shortDescription:
       "Un bouquet importante di rose rosse.",
     description:
@@ -414,7 +418,7 @@ export const products: Product[] = [
     price: 74,
     category: "Rose",
     image:
-      "/images/rose-rosa-elegance.jpg",
+      "/images/rose-rosa-elegance.webp",
     shortDescription:
       "Rose rosa delicate e raffinate.",
     description:
@@ -426,7 +430,7 @@ export const products: Product[] = [
     price: 89,
     category: "Rose",
     image:
-      "/images/bouquet-rose-romantico.jpg",
+      "/images/bouquet-rose-romantico.webp",
     shortDescription:
       "Una composizione romantica di rose.",
     description:
@@ -439,7 +443,7 @@ export const products: Product[] = [
     price: 89,
     category: "Peonie",
     image:
-      "/images/peonie-rosa.jpg",
+      "/images/peonie-rosa.webp",
     shortDescription:
       "Peonie rosa delicate e romantiche.",
     description:
@@ -451,7 +455,7 @@ export const products: Product[] = [
     price: 95,
     category: "Peonie",
     image:
-      "/images/peonie-bianche.jpg",
+      "/images/peonie-bianche.webp",
     shortDescription:
       "Peonie bianche eleganti e luminose.",
     description:
@@ -463,7 +467,7 @@ export const products: Product[] = [
     price: 109,
     category: "Peonie",
     image:
-      "/images/bouquet-peonie-premium.jpg",
+      "/images/bouquet-peonie-premium.webp",
     shortDescription:
       "Un bouquet premium di peonie.",
     description:
@@ -475,7 +479,7 @@ export const products: Product[] = [
     price: 99,
     category: "Peonie",
     image:
-      "/images/peonie-romantiche.jpg",
+      "/images/peonie-romantiche.webp",
     shortDescription:
       "Una composizione morbida e romantica.",
     description:
@@ -488,7 +492,7 @@ export const products: Product[] = [
     price: 54,
     category: "Tulipani",
     image:
-      "/images/tulipani-colorati.jpg",
+      "/images/tulipani-colorati.webp",
     shortDescription:
       "Un bouquet allegro di tulipani colorati.",
     description:
@@ -500,7 +504,7 @@ export const products: Product[] = [
     price: 59,
     category: "Tulipani",
     image:
-      "/images/tulipani-rosa.jpg",
+      "/images/tulipani-rosa.webp",
     shortDescription:
       "Tulipani rosa delicati ed eleganti.",
     description:
@@ -512,7 +516,7 @@ export const products: Product[] = [
     price: 64,
     category: "Tulipani",
     image:
-      "/images/tulipani-bianchi.jpg",
+      "/images/tulipani-bianchi.webp",
     shortDescription:
       "Tulipani bianchi luminosi.",
     description:
@@ -524,7 +528,7 @@ export const products: Product[] = [
     price: 79,
     category: "Tulipani",
     image:
-      "/images/bouquet-tulipani-premium.jpg",
+      "/images/bouquet-tulipani-premium.webp",
     shortDescription:
       "Una selezione premium di tulipani.",
     description:
@@ -537,7 +541,7 @@ export const products: Product[] = [
     price: 52,
     category: "Girasoli",
     image:
-      "/images/girasoli-milano.jpg",
+      "/images/girasoli-milano.webp",
     shortDescription:
       "Un bouquet solare di girasoli.",
     description:
@@ -549,7 +553,7 @@ export const products: Product[] = [
     price: 69,
     category: "Girasoli",
     image:
-      "/images/bouquet-girasoli-premium.jpg",
+      "/images/bouquet-girasoli-premium.webp",
     shortDescription:
       "Una composizione premium di girasoli.",
     description:
@@ -561,7 +565,7 @@ export const products: Product[] = [
     price: 64,
     category: "Girasoli",
     image:
-      "/images/girasoli-fiori-colorati.jpg",
+      "/images/girasoli-fiori-colorati.webp",
     shortDescription:
       "Girasoli e fiori colorati.",
     description:
@@ -573,7 +577,7 @@ export const products: Product[] = [
     price: 74,
     category: "Girasoli",
     image:
-      "/images/bouquet-sole-milano.jpg",
+      "/images/bouquet-sole-milano.webp",
     shortDescription:
       "Un bouquet allegro e luminoso.",
     description:
@@ -586,7 +590,7 @@ export const products: Product[] = [
     price: 69,
     category: "Orchidee",
     image:
-      "/images/orchidea-bianca-elegance.jpg",
+      "/images/orchidea-bianca-elegance.webp",
     shortDescription:
       "Un'orchidea bianca elegante e raffinata.",
     description:
@@ -598,7 +602,7 @@ export const products: Product[] = [
     price: 79,
     category: "Orchidee",
     image:
-      "/images/orchidea-rosa-premium.jpg",
+      "/images/orchidea-rosa-premium.webp",
     shortDescription:
       "Un'orchidea rosa delicata.",
     description:
@@ -610,7 +614,7 @@ export const products: Product[] = [
     price: 99,
     category: "Orchidee",
     image:
-      "/images/composizione-orchidee.jpg",
+      "/images/composizione-orchidee.webp",
     shortDescription:
       "Una composizione elegante di orchidee.",
     description:
@@ -622,7 +626,7 @@ export const products: Product[] = [
     price: 119,
     category: "Orchidee",
     image:
-      "/images/orchidea-luxury-milano.jpg",
+      "/images/orchidea-luxury-milano.webp",
     shortDescription:
       "Una proposta premium e sofisticata.",
     description:

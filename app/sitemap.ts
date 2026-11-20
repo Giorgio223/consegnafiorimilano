@@ -6,7 +6,7 @@ import { locales, languageAlternates, withLocale } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/bouquet", "/come-funziona", "/consegna-fiori-milano", "/fiori/rose", "/fiori/peonie", "/fiori/tulipani", "/fiori/girasoli", "/fiori/orchidee", "/politica-resi", "/privacy-policy", "/zone-consegna"];
+  const staticRoutes = ["", "/bouquet", "/come-funziona", "/consegna-fiori-milano", "/fiori/rose", "/fiori/peonie", "/fiori/tulipani", "/fiori/girasoli", "/fiori/orchidee", "/chi-siamo", "/recensioni", "/politica-resi", "/privacy-policy", "/zone-consegna"];
 
   // Only routes implemented for every language are included in language clusters.
   const translatedRoutes = [

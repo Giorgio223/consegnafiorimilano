@@ -52,7 +52,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     image: [`${SITE_URL}${product.image}`],
     description: product.description,
     brand: { "@type": "Brand", name: "Consegna Fiori Milano" },
-    offers: { "@type": "AggregateOffer", priceCurrency: "EUR", lowPrice: prices.Piccolo, highPrice: prices.Premium, offerCount: 3, availability: "https://schema.org/InStock", url: `${SITE_URL}/prodotti/${product.slug}` },
+    offers: { "@type": "AggregateOffer", priceCurrency: "EUR", lowPrice: prices.Piccolo, highPrice: prices.Premium, offerCount: 3, url: `${SITE_URL}/prodotti/${product.slug}` },
   };
   return <main className="min-h-screen bg-white text-[#1f1f1f]"><Header /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} /><ProductDetails product={product} />
     <section className="border-t border-black/10 bg-neutral-50 py-12"><div className="mx-auto max-w-6xl px-6"><h2 className="text-2xl font-bold">Consegna di {product.name.toLowerCase()} a Milano e dintorni</h2><p className="mt-3 leading-7 text-neutral-600">Verifica la disponibilità della consegna per il tuo indirizzo. Per i comuni fuori Milano, conferma copertura e costo prima di pagare.</p><div className="mt-6 flex flex-wrap gap-3">{deliveryAreas.map(area=><Link key={area.slug} href={deliveryAreaUrl(area)} className="rounded-full border border-black/15 bg-white px-4 py-3 text-sm font-semibold hover:border-black">{area.name}</Link>)}<Link href="/zone-consegna" className="rounded-full border border-black/15 bg-white px-4 py-3 text-sm font-semibold hover:border-black">Zone di consegna</Link></div></div></section>

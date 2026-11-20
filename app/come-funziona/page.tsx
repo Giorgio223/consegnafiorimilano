@@ -125,10 +125,11 @@ export default function ComeFunzionaPage() {
 
           <div className="overflow-hidden rounded-[2.5rem]">
             <Image width={1200} height={1200}
-              src="/images/come-funziona.jpg"
+              src="/images/come-funziona.webp"
               alt="Preparazione di bouquet di fiori freschi a Milano"
               className="aspect-[4/3] h-full w-full object-cover"
-            />
+            loading="lazy"
+                  />
           </div>
         </div>
       </section>
