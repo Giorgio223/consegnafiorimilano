@@ -11,37 +11,37 @@ export const trustText: Record<Locale, { since: string; about: string; reviews: 
 
 export const faqByLocale: Record<Locale, {q:string; a:string}[]> = {
  it: [
- { q:"Consegnate anche nelle zone ZTL di Milano?", a:"Possiamo valutare consegne nelle aree ZTL in base all'indirizzo e alle fasce consentite. Contattaci prima dell'ordine per verificare l'accesso." },
+ { q:"Consegnate anche nelle zone ZTL di Milano?", a:"Sì, consegniamo in tutta Milano, comprese le zone ZTL. Organizziamo la consegna nel rispetto delle regole di accesso e concordiamo, se necessario, il punto di consegna." },
  { q:"Posso pagare con una carta emessa all'estero?", a:"Il checkout utilizza Stripe e può accettare carte internazionali supportate dall'emittente e dal circuito. L'esito dipende dalla banca e dai controlli di pagamento." },
  { q:"Posso ricevere una foto del bouquet prima della consegna?", a:"Puoi richiedere una foto tramite WhatsApp: la possibilità di inviarla dipende dal carico di lavoro e non è garantita." },
  { q:"È possibile la consegna in giornata?", a:"Su richiesta e secondo disponibilità di fiori, orario, indirizzo e capacità dei corrieri. Per urgenze contattaci prima di pagare." },
  ],
  en: [
- {q:"Can you deliver to Milan's restricted-traffic (ZTL) areas?",a:"We can assess the address and permitted access times. Please contact us before ordering."},
+ {q:"Can you deliver to Milan's restricted-traffic (ZTL) areas?",a:"Yes, we deliver throughout Milan, including ZTL restricted-traffic areas. We arrange delivery in accordance with access rules and agree on a suitable handover point if needed."},
  {q:"Can I pay with a card issued abroad?",a:"Our Stripe checkout supports eligible international cards, subject to your card issuer's approval."},
  {q:"Can you send a bouquet photo before delivery?",a:"You may request a photo over WhatsApp. Availability depends on workload and cannot be guaranteed."},
  {q:"Do you offer same-day delivery?",a:"On request, subject to flower availability, location, order time and delivery capacity. Please confirm before paying."},
  ],
  de: [
- {q:"Liefern Sie in Mailänder ZTL-Zonen?",a:"Wir prüfen die Zufahrt anhand der Adresse und der erlaubten Zeiten. Bitte kontaktieren Sie uns vor der Bestellung."},
+ {q:"Liefern Sie in Mailänder ZTL-Zonen?",a:"Ja, wir liefern in ganz Mailand, einschließlich der ZTL-Zonen. Wir beachten die Zufahrtsregeln und vereinbaren bei Bedarf einen geeigneten Übergabeort."},
  {q:"Kann ich mit einer ausländischen Karte zahlen?",a:"Die Zahlung läuft über Stripe. Internationale Karten werden je nach Kartenaussteller unterstützt."},
  {q:"Kann ich vor der Lieferung ein Foto erhalten?",a:"Fotos können per WhatsApp angefragt werden, sind aber abhängig vom Arbeitsaufkommen und nicht garantiert."},
  {q:"Ist eine Lieferung am selben Tag möglich?",a:"Auf Anfrage und je nach Blumenverfügbarkeit, Uhrzeit, Adresse und Kurierkapazität."},
  ],
  es: [
- {q:"¿Entregáis en las zonas ZTL de Milán?",a:"Podemos comprobar el acceso según la dirección y el horario permitido. Consúltanos antes de comprar."},
+ {q:"¿Entregáis en las zonas ZTL de Milán?",a:"Sí, entregamos en todo Milán, incluidas las zonas ZTL. Organizamos la entrega respetando las normas de acceso y, si es necesario, acordamos un punto de entrega adecuado."},
  {q:"¿Aceptáis tarjetas extranjeras?",a:"El pago se realiza con Stripe y admite tarjetas internacionales compatibles, sujeto a la aprobación del emisor."},
  {q:"¿Puedo pedir una foto antes de la entrega?",a:"Puedes solicitarla por WhatsApp, según la carga de trabajo; no está garantizada."},
  {q:"¿Hay entrega el mismo día?",a:"Bajo petición y según flores disponibles, hora, dirección y capacidad de reparto."},
  ],
  fr: [
- {q:"Livrez-vous dans les zones ZTL de Milan ?",a:"Nous pouvons vérifier l'accès selon l'adresse et les horaires autorisés. Contactez-nous avant de commander."},
+ {q:"Livrez-vous dans les zones ZTL de Milan ?",a:"Oui, nous livrons dans tout Milan, y compris les zones ZTL. Nous organisons la livraison dans le respect des règles d'accès et convenons si nécessaire d'un point de remise adapté."},
  {q:"Puis-je payer avec une carte étrangère ?",a:"Le paiement passe par Stripe et accepte les cartes internationales éligibles, sous réserve de validation bancaire."},
  {q:"Puis-je recevoir une photo avant la livraison ?",a:"Vous pouvez la demander sur WhatsApp, selon la charge de travail. Ce service n'est pas garanti."},
  {q:"La livraison le jour même est-elle possible ?",a:"Sur demande, selon les fleurs disponibles, l'heure, l'adresse et la capacité de livraison."},
  ],
  ru: [
- {q:"Доставляете ли вы в зоны ZTL Милана?",a:"Проверяем доступ по адресу и разрешённому времени въезда. Свяжитесь с нами до заказа."},
+ {q:"Доставляете ли вы в зоны ZTL Милана?",a:"Да, доставляем цветы по всему Милану, включая зоны ZTL. Учитываем правила въезда и при необходимости согласуем удобное место передачи букета."},
  {q:"Можно оплатить иностранной банковской картой?",a:"Оплата через Stripe поддерживает подходящие международные карты, если платёж одобряет банк."},
  {q:"Можно получить фото букета до доставки?",a:"Фото можно запросить в WhatsApp, но отправка зависит от загруженности и не гарантируется."},
  {q:"Возможна доставка в день заказа?",a:"По запросу, при наличии цветов и свободного времени курьера. Срочные заказы согласуйте до оплаты."},
