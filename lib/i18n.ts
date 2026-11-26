@@ -32,7 +32,7 @@ export const seoTerms: Record<Locale, string> = {
 
 export function languageAlternates(pathname: string): Record<string, string> {
   const result: Record<string, string> = { "x-default": withLocale(pathname, "it") };
-  for (const locale of locales) result[locale === "it" ? "it-IT" : locale] = withLocale(pathname, locale);
+  for (const locale of locales) result[locale] = withLocale(pathname, locale);
   return result;
 }
 

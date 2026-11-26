@@ -1,3 +1,4 @@
+import TrustStrip from "@/components/TrustStrip";
 import type { Metadata } from "next";
 import { languageAlternates } from "@/lib/i18n";
 import Image from "next/image";
@@ -107,7 +108,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-[#1f1f1f]">
-      <Header />
+      <Header /><TrustStrip/>
 
       <section className="mx-auto grid min-h-[82vh] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2">
         <div>

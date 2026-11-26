@@ -68,6 +68,10 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         url: SITE_URL,
         image: `${SITE_URL}/images/logo.png`,
         logo: `${SITE_URL}/images/logo.png`,
+        legalName: business.legalName,
+        taxID: business.fiscalCode,
+        vatID: business.vat,
+        address: {"@type":"PostalAddress",streetAddress:"Via Arcivescovo Romilli, 13",postalCode:"20139",addressLocality:"Milano",addressRegion:"MI",addressCountry:"IT"},
         telephone: WHATSAPP_NUMBER,
         email: BUSINESS_EMAIL,
         areaServed: [

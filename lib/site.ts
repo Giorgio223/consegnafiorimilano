@@ -1,7 +1,7 @@
 export const SITE_URL = "https://consegnafiorimilano.it";
 export const SITE_NAME = "Consegna Fiori Milano";
 export const WHATSAPP_NUMBER = "+393793718598";
-export const BUSINESS_EMAIL = "info@consegnafiorimilano.it";
+export const BUSINESS_EMAIL = "info@consegnah24.it";
 
 export const SEO_KEYWORDS = [
   "consegna fiori Milano",

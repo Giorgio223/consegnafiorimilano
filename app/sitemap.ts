@@ -1,3 +1,4 @@
+import {topics} from "@/data/landing-topics";
 import type { MetadataRoute } from "next";
 import { products } from "@/data/products";
 import { seoLandingPages } from "@/data/seo-pages";
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Only routes implemented for every language are included in language clusters.
   const translatedRoutes = [
     ...staticRoutes.filter((route) => !["/politica-resi", "/privacy-policy", "/zone-consegna"].includes(route)),
+    ...topics.map(topic=>`/servizi/${topic.slug}`),
     ...products.map((product) => `/prodotti/${product.slug}`),
   ];
   const localized = translatedRoutes.flatMap((route) => locales.map((locale) => ({
@@ -23,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...localized,
     ...["/politica-resi", "/privacy-policy", "/zone-consegna"].map((path) => ({url: `${SITE_URL}${path}`, changeFrequency: "monthly" as const, priority: 0.3})),
     ...deliveryAreas.map((area) => ({ url: `${SITE_URL}${deliveryAreaUrl(area)}`, changeFrequency: "monthly" as const, priority: 0.7 })),
-    ...seoLandingPages.map((page) => ({ url: `${SITE_URL}/servizi/${page.slug}`, changeFrequency: "monthly" as const, priority: 0.7 })),
+    ...seoLandingPages.filter(page=>!topics.some(topic=>topic.slug===page.slug)).map((page) => ({ url: `${SITE_URL}/servizi/${page.slug}`, changeFrequency: "monthly" as const, priority: 0.7 })),
     ...["en", "ru"].map((locale) => ({ url: `${SITE_URL}/${locale}/return-policy`, priority: 0.3 })),
   ];
 }

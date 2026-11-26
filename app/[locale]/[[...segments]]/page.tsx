@@ -1,3 +1,6 @@
+import TrustStrip from "@/components/TrustStrip";
+import LandingPage,{landingMetadata} from "@/components/LandingPage";
+import {getTopic} from "@/data/landing-topics";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -89,6 +92,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const locale = localeData(rawLocale);
   const t = copy[locale];
   const path = segments.join("/");
+  if(segments.length===2&&segments[0]==="servizi"){const topic=getTopic(segments[1]);if(topic)return landingMetadata(topic,locale);}
   // Do not advertise nonexistent localized routes as indexable pages.
   const validRoute = (segments.length === 1 && ["chi-siamo","recensioni"].includes(segments[0])) || segments.length === 0 ||
     (segments.length === 1 && ["bouquet", "come-funziona", "consegna-fiori-milano"].includes(segments[0])) ||
@@ -157,6 +161,7 @@ export default async function LocalizedPage({ params }: { params: Promise<{ loca
   const { locale: rawLocale, segments = [] } = await params;
   const locale = localeData(rawLocale);
   const t = copy[locale];
+  if(segments.length===2&&segments[0]==="servizi"){const topic=getTopic(segments[1]);if(!topic)notFound();return <LandingPage topic={topic} locale={locale}/>;} 
 
   if (segments.length===1 && segments[0]==="chi-siamo") return <main><Header/><Breadcrumbs locale={locale} items={[{label:trustText[locale].about,path:"/chi-siamo"}]}/><AboutSection locale={locale}/><Footer/></main>;
   if (segments.length===1 && segments[0]==="recensioni") return <main><Header/><Breadcrumbs locale={locale} items={[{label:trustText[locale].reviews,path:"/recensioni"}]}/><h1 className="mx-auto max-w-6xl px-6 pt-14 text-4xl font-bold">{trustText[locale].reviews}</h1><ReviewsSection locale={locale}/><Footer/></main>;
@@ -164,7 +169,8 @@ export default async function LocalizedPage({ params }: { params: Promise<{ loca
     const product = getProduct(segments[1]);
     if (!product) notFound();
     const localizedProduct = { ...product, description: `${product.name} — ${t.productSuffix}. ${t.bouquetIntro}` };
-    return <main className="min-h-screen bg-white text-[#1f1f1f]"><Header /><ProductDetails product={localizedProduct} locale={locale} /><Footer /></main>;
+    const schema={"@context":"https://schema.org","@type":"Product",name:product.name,description:localizedProduct.description,image:[SITE_URL+product.image],offers:{ "@type":"AggregateOffer",priceCurrency:"EUR",lowPrice:getSizePrices(product.price).Piccolo,highPrice:getSizePrices(product.price).Premium,offerCount:3,url:SITE_URL+"/"+locale+"/prodotti/"+product.slug}};
+    return <main className="min-h-screen bg-white text-[#1f1f1f]"><Header /><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,"\\u003c")}}/><ProductDetails product={localizedProduct} locale={locale} /><Footer /></main>;
   }
 
   let heading: string = t.h1;
@@ -211,7 +217,7 @@ export default async function LocalizedPage({ params }: { params: Promise<{ loca
       ) : (
         <section className="py-20"><div className="mx-auto grid max-w-5xl gap-6 px-6 md:grid-cols-2"><article className="rounded-[2rem] border border-black/10 p-8"><h2 className="text-3xl font-bold">{t.deliveryTitle}</h2><p className="mt-5 text-lg leading-8 text-neutral-600">{t.deliveryText}</p></article><article className="rounded-[2rem] border border-black/10 p-8"><h2 className="text-3xl font-bold">{t.howTitle}</h2><p className="mt-5 text-lg leading-8 text-neutral-600">{t.howText}</p></article></div></section>
       )}
-      {segments.length===0 && <BenefitsSection locale={locale}/>}
+      {segments.length===0 && <><TrustStrip locale={locale}/><BenefitsSection locale={locale}/></>}
       <SeoFaq locale={locale} />
       <Footer />
     </main>

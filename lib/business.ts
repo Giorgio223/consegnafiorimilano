@@ -1,19 +1,9 @@
 import { SITE_NAME, SITE_URL, BUSINESS_EMAIL, WHATSAPP_NUMBER } from "@/lib/site";
-
-// IMPORTANT: replace the editorial placeholders with verified legal information before publication.
-// Do not add invented street coordinates, phone numbers or opening times.
 export const business = {
-  name: SITE_NAME,
-  url: SITE_URL,
-  founded: "2018", // Owner-provided claim: verify supporting documents before deploying.
-  legalName: "Consegna Dei Fiori A Milano e dintorni",
-  vat: "",
-  address: "",
-  landline: "",
-  email: "info@consegnah24.it",
-  whatsapp: WHATSAPP_NUMBER,
-  // Publish these ONLY if they match the real business address and actual opening hours.
-  latitude: undefined as number | undefined,
-  longitude: undefined as number | undefined,
-  openingHours: undefined as string[] | undefined,
+ name:SITE_NAME, url:SITE_URL, founded:"2018",
+ legalName:"Trotski Yahor", vat:"IT14815430963", fiscalCode:"TRTYHR04D30Z139M",
+ address:"Via Arcivescovo Romilli, 13, 20139 Milano (MI), Italia",
+ landline:WHATSAPP_NUMBER, email:BUSINESS_EMAIL, pec:"info@aprirep7m.it", whatsapp:WHATSAPP_NUMBER,
+ latitude:undefined as number|undefined, longitude:undefined as number|undefined,
+ openingHours:undefined as string[]|undefined,
 };

@@ -1,0 +1,258 @@
+{
+  "consegna-fiori-in-giornata-milano": {
+    "it": "Indica subito l’orario entro cui il regalo deve arrivare e scegli una composizione disponibile, senza vincolare la scelta a una varietà fuori stagione.",
+    "en": "Share the latest acceptable arrival time and choose an available arrangement rather than insisting on an out-of-season variety.",
+    "de": "Bestätigen Sie die späteste Ankunftszeit.",
+    "es": "Confirma la hora límite de llegada.",
+    "fr": "Confirmez l’heure limite de livraison.",
+    "ru": "Согласуйте крайнее время доставки."
+  },
+  "consegna-fiori-2-ore": {
+    "it": "Una finestra di due ore richiede conferma prima del pagamento: prepara indirizzo, citofono e numero del destinatario.",
+    "en": "A two-hour window needs confirmation before payment: prepare the address, doorbell and recipient phone number.",
+    "de": "Ein Zwei-Stunden-Fenster muss bestätigt werden.",
+    "es": "Confirma el plazo de dos horas antes de pagar.",
+    "fr": "Confirmez le délai de deux heures avant paiement.",
+    "ru": "Подтвердите возможность доставки за два часа до оплаты."
+  },
+  "domenica-festivi": {
+    "it": "Nei festivi prenota in anticipo e concorda un recapito alternativo se il destinatario non è reperibile.",
+    "en": "Book ahead for holidays and agree an alternative contact if the recipient is unavailable.",
+    "de": "An Feiertagen frühzeitig buchen.",
+    "es": "Reserva con antelación para festivos.",
+    "fr": "Réservez à l’avance pour les jours fériés.",
+    "ru": "На праздники бронируйте заранее."
+  },
+  "consegna-anonima": {
+    "it": "Specifica se il biglietto deve essere senza firma. I dati dell’acquirente restano necessari per pagamento e assistenza.",
+    "en": "Specify whether the card should be unsigned. Buyer details are still needed for payment and support.",
+    "de": "Eine Karte ohne Unterschrift ist auf Anfrage möglich.",
+    "es": "Solicita una tarjeta sin firma.",
+    "fr": "Demandez une carte sans signature.",
+    "ru": "Попросите открытку без подписи."
+  },
+  "hotel-ristoranti": {
+    "it": "Concorda con la reception il nome dell’ospite e la possibilità di custodire i fiori prima della consegna.",
+    "en": "Check with reception about the guest name and whether staff can hold flowers before handover.",
+    "de": "Klären Sie die Übergabe mit der Rezeption.",
+    "es": "Acuerda la entrega con recepción.",
+    "fr": "Convenez de la remise avec la réception.",
+    "ru": "Согласуйте вручение с ресепшеном."
+  },
+  "uffici-aziende": {
+    "it": "Per gli uffici indica piano, reparto e orario di reception; per ordini multipli chiedi un preventivo.",
+    "en": "For offices specify floor, department and reception hours; request a quote for multiple orders.",
+    "de": "Geben Sie Etage und Abteilung an.",
+    "es": "Indica planta y departamento.",
+    "fr": "Indiquez étage et service.",
+    "ru": "Укажите этаж и отдел."
+  },
+  "abbonamento-fiori": {
+    "it": "Concorda frequenza, dimensione, budget, sostituzioni stagionali e modalità di sospensione prima di iniziare.",
+    "en": "Agree frequency, size, budget, seasonal substitutions and pause arrangements before starting.",
+    "de": "Klären Sie Rhythmus, Budget und Pausen.",
+    "es": "Acuerda frecuencia, presupuesto y pausas.",
+    "fr": "Convenez de la fréquence, du budget et des pauses.",
+    "ru": "Согласуйте периодичность, бюджет и паузы."
+  },
+  "ordinare-estero": {
+    "it": "Verifica il fuso orario di Milano, inserisci un numero italiano se possibile e controlla il totale in euro.",
+    "en": "Check Milan time, include an Italian contact number if possible and review the total in euros.",
+    "de": "Beachten Sie die Mailänder Ortszeit und Europreise.",
+    "es": "Comprueba la hora de Milán y el precio en euros.",
+    "fr": "Vérifiez l’heure de Milan et le prix en euros.",
+    "ru": "Учитывайте местное время Милана и цены в евро."
+  },
+  "duomo-centro": {
+    "it": "Nel centro storico verifica accessi pedonali, portineria e punto di incontro nei pressi del Duomo.",
+    "en": "In the historic centre check pedestrian access, concierge details and a meeting point near the Duomo.",
+    "de": "Klären Sie Fußgängerzugang am Dom.",
+    "es": "Comprueba el acceso peatonal al Duomo.",
+    "fr": "Vérifiez les accès piétons près du Duomo.",
+    "ru": "Уточните доступ в пешеходной зоне Дуомо."
+  },
+  "brera-moscova": {
+    "it": "Per Brera e Moscova specifica civico e interno: le vie strette possono richiedere un passaggio a piedi.",
+    "en": "In Brera and Moscova specify the building and unit: narrow streets can require a walking handover.",
+    "de": "Geben Sie Hausnummer und Wohnung an.",
+    "es": "Indica número y piso.",
+    "fr": "Précisez numéro et appartement.",
+    "ru": "Укажите номер дома и квартиры."
+  },
+  "porta-nuova-isola": {
+    "it": "Per torri e residenze di Porta Nuova indica reception, edificio e ingresso esatto.",
+    "en": "For Porta Nuova towers and residences specify reception, building and exact entrance.",
+    "de": "Nennen Sie Turm und Empfang.",
+    "es": "Indica torre y recepción.",
+    "fr": "Précisez tour et réception.",
+    "ru": "Укажите башню и ресепшен."
+  },
+  "navigli-ticinese": {
+    "it": "Sui Navigli concorda il punto di incontro e considera la maggiore affluenza serale.",
+    "en": "Along the Navigli agree a meeting point and allow for evening crowds.",
+    "de": "Berücksichtigen Sie abendlichen Andrang.",
+    "es": "Ten en cuenta las aglomeraciones nocturnas.",
+    "fr": "Tenez compte de l’affluence en soirée.",
+    "ru": "Учитывайте вечернее скопление людей."
+  },
+  "citylife-fiera": {
+    "it": "Per CityLife e Fiera indica torre, padiglione o ingresso; verifica le regole degli eventi.",
+    "en": "For CityLife and Fiera specify tower, hall or entrance and check event access rules.",
+    "de": "Klären Sie Halle und Eingang.",
+    "es": "Confirma pabellón y entrada.",
+    "fr": "Précisez pavillon et entrée.",
+    "ru": "Уточните павильон и вход."
+  },
+  "porta-romana-corvetto": {
+    "it": "Via Arcivescovo Romilli è la sede legale nel CAP 20139; per la consegna specifica comunque il civico esatto.",
+    "en": "Via Arcivescovo Romilli is the legal address in postcode 20139; still provide the exact recipient address.",
+    "de": "Via Romilli liegt im PLZ-Gebiet 20139.",
+    "es": "Via Romilli está en el CP 20139.",
+    "fr": "Via Romilli se situe dans le secteur 20139.",
+    "ru": "Юридический адрес Via Romilli находится в зоне 20139."
+  },
+  "porta-venezia": {
+    "it": "Per Città Studi e Buenos Aires distingui l’ingresso residenziale da quello commerciale o universitario.",
+    "en": "In Città Studi and Buenos Aires distinguish residential entrances from commercial or university entrances.",
+    "de": "Unterscheiden Sie Wohn- und Hochschulzugang.",
+    "es": "Distingue acceso residencial y universitario.",
+    "fr": "Distinguez accès résidentiel et universitaire.",
+    "ru": "Различайте вход в жилой дом и университет."
+  },
+  "san-siro-wagner": {
+    "it": "Nei giorni di eventi a San Siro concorda un punto di consegna lontano dagli accessi congestionati.",
+    "en": "On San Siro event days agree a handover point away from congested entrances.",
+    "de": "Beachten Sie Veranstaltungstage am Stadion.",
+    "es": "Ten en cuenta los eventos del estadio.",
+    "fr": "Tenez compte des événements au stade.",
+    "ru": "Учитывайте мероприятия на стадионе."
+  },
+  "laurea": {
+    "it": "Per la laurea indica ateneo, sede, orario della proclamazione e colore del nastro; le corone sono da confermare.",
+    "en": "For graduation specify university, campus, ceremony time and ribbon colour; wreath availability needs confirmation.",
+    "de": "Klären Sie Universität, Termin und Bandfarbe.",
+    "es": "Confirma universidad, hora y color de cinta.",
+    "fr": "Précisez université, horaire et couleur du ruban.",
+    "ru": "Уточните университет, время и цвет ленты."
+  },
+  "nascita": {
+    "it": "Prima di inviare fiori in ospedale chiedi al reparto se sono ammessi; in alternativa scegli la consegna a casa.",
+    "en": "Before sending hospital flowers ask the ward whether they are allowed; home delivery is an alternative.",
+    "de": "Fragen Sie die Klinik nach Blumenregeln.",
+    "es": "Consulta las normas del hospital.",
+    "fr": "Vérifiez les règles de l’hôpital.",
+    "ru": "Уточните правила отделения больницы."
+  },
+  "compleanno": {
+    "it": "Scegli colori graditi al festeggiato e aggiungi un messaggio personale; evita fasce in cui non sarà presente.",
+    "en": "Choose colours the recipient enjoys and add a personal note; avoid times when they will be away.",
+    "de": "Wählen Sie Lieblingsfarben und eine persönliche Karte.",
+    "es": "Elige colores favoritos y una nota personal.",
+    "fr": "Choisissez les couleurs préférées et un mot personnel.",
+    "ru": "Выберите любимые цвета и личное послание."
+  },
+  "anniversario": {
+    "it": "Le rose rosse esprimono tradizionalmente amore; per San Valentino prenota con anticipo e concorda quantità e formato.",
+    "en": "Red roses traditionally express love; for Valentine’s Day book ahead and agree stem count and size.",
+    "de": "Buchen Sie rote Rosen zum Valentinstag frühzeitig.",
+    "es": "Reserva rosas rojas para San Valentín con tiempo.",
+    "fr": "Réservez tôt les roses de Saint-Valentin.",
+    "ru": "Закажите красные розы на День святого Валентина заранее."
+  },
+  "matrimonio": {
+    "it": "Per un matrimonio concorda palette, stile, orari e location; il bouquet da sposa richiede un preventivo dedicato.",
+    "en": "For weddings agree palette, style, timings and venue; bridal flowers need a dedicated quote.",
+    "de": "Klären Sie Farbpalette und Hochzeitsort.",
+    "es": "Acuerda paleta y lugar de boda.",
+    "fr": "Convenez des couleurs et du lieu du mariage.",
+    "ru": "Согласуйте палитру и место свадьбы."
+  },
+  "condoglianze": {
+    "it": "Preferisci colori sobri e un messaggio rispettoso; verifica con la famiglia o la struttura il luogo e l’orario.",
+    "en": "Choose restrained colours and a respectful note; check venue and timing with the family or facility.",
+    "de": "Wählen Sie dezente Farben und respektvolle Worte.",
+    "es": "Elige tonos discretos y palabras respetuosas.",
+    "fr": "Choisissez des tons sobres et des mots respectueux.",
+    "ru": "Выберите сдержанные оттенки и уважительное послание."
+  },
+  "mamma-donna": {
+    "it": "Per le ricorrenze con alta domanda scegli per tempo i colori e verifica disponibilità delle varietà desiderate.",
+    "en": "For high-demand celebrations choose colours early and check the availability of preferred varieties.",
+    "de": "Reservieren Sie bei hoher Nachfrage frühzeitig.",
+    "es": "Reserva con tiempo en fechas de alta demanda.",
+    "fr": "Réservez tôt lors des périodes de forte demande.",
+    "ru": "Бронируйте заранее в дни высокого спроса."
+  },
+  "scusa-grazie": {
+    "it": "Un messaggio breve e sincero accompagna bene un bouquet; scegli un regalo proporzionato alla relazione.",
+    "en": "A short sincere note works well with flowers; choose a gift appropriate to the relationship.",
+    "de": "Eine kurze ehrliche Nachricht genügt.",
+    "es": "Un mensaje breve y sincero es suficiente.",
+    "fr": "Un mot bref et sincère suffit.",
+    "ru": "Достаточно короткого искреннего послания."
+  },
+  "provenienza": {
+    "it": "Aalsmeer e Sanremo sono centri importanti del commercio floreale; chiedi l’origine effettiva del lotto scelto.",
+    "en": "Aalsmeer and Sanremo are important flower trade centres; ask about the actual origin of your selected batch.",
+    "de": "Fragen Sie nach der tatsächlichen Herkunft der Charge.",
+    "es": "Pregunta por el origen real del lote.",
+    "fr": "Demandez l’origine réelle du lot.",
+    "ru": "Уточните реальное происхождение партии."
+  },
+  "mercato-fiori": {
+    "it": "Controlla turgore, petali, steli e foglie: sono indicatori utili, insieme alla corretta conservazione.",
+    "en": "Check firmness, petals, stems and leaves: these are useful indicators alongside proper storage.",
+    "de": "Prüfen Sie Blätter, Stiele und Blütenblätter.",
+    "es": "Revisa hojas, tallos y pétalos.",
+    "fr": "Vérifiez feuilles, tiges et pétales.",
+    "ru": "Проверьте листья, стебли и лепестки."
+  },
+  "filiera-sostenibile": {
+    "it": "La provenienza locale non prova da sola un minore impatto: valuta stagione, coltivazione, trasporto e imballaggio.",
+    "en": "Local origin alone does not prove lower impact: consider season, growing methods, transport and packaging.",
+    "de": "Regionale Herkunft allein beweist keine Nachhaltigkeit.",
+    "es": "El origen local no garantiza sostenibilidad.",
+    "fr": "L’origine locale ne garantit pas la durabilité.",
+    "ru": "Местное происхождение само по себе не гарантирует экологичность."
+  },
+  "cura-fiori": {
+    "it": "Usa un vaso pulito, recidi gli steli in diagonale, elimina foglie immerse e cambia l’acqua regolarmente. Due settimane non sono garantite.",
+    "en": "Use a clean vase, trim stems diagonally, remove submerged leaves and refresh water regularly. Two weeks is not guaranteed.",
+    "de": "Nutzen Sie eine saubere Vase und wechseln Sie das Wasser.",
+    "es": "Usa un jarrón limpio y cambia el agua.",
+    "fr": "Utilisez un vase propre et changez l’eau.",
+    "ru": "Используйте чистую вазу и регулярно меняйте воду."
+  },
+  "significato-fiori": {
+    "it": "Rosso richiama passione, bianco sobrietà e rosa affetto; i significati variano con cultura e occasione.",
+    "en": "Red suggests passion, white restraint and pink affection; meanings vary by culture and occasion.",
+    "de": "Farbsymbolik hängt von Kultur und Anlass ab.",
+    "es": "El simbolismo depende de la cultura y ocasión.",
+    "fr": "La symbolique dépend de la culture et de l’occasion.",
+    "ru": "Символика цвета зависит от культуры и повода."
+  },
+  "consegna-fiori-provincia-milano": {
+    "it": "Monza appartiene a una provincia distinta; per ogni comune chiedi conferma di copertura, supplemento e fascia oraria.",
+    "en": "Monza belongs to a separate province; confirm coverage, surcharge and time window for each municipality.",
+    "de": "Monza ist eine eigene Provinz; prüfen Sie die Lieferkosten.",
+    "es": "Monza es otra provincia; confirma el coste.",
+    "fr": "Monza est une province distincte ; confirmez le tarif.",
+    "ru": "Монца — отдельная провинция; уточните стоимость."
+  },
+  "recensioni-clienti": {
+    "it": "Consulta solo testimonianze autentiche pubblicate nella pagina recensioni; non attribuiamo voti senza dati verificabili.",
+    "en": "Consult genuine testimonials published on the reviews page; ratings should not be assigned without verifiable data.",
+    "de": "Verlassen Sie sich auf echte Kundenbewertungen.",
+    "es": "Consulta opiniones auténticas.",
+    "fr": "Consultez les avis authentiques.",
+    "ru": "Ориентируйтесь на подлинные отзывы."
+  },
+  "faq-consegna": {
+    "it": "Prima di pagare controlla composizione, dimensione, costo della consegna, recapito e disponibilità della fascia.",
+    "en": "Before paying check arrangement, size, delivery cost, recipient details and time-slot availability.",
+    "de": "Prüfen Sie Größe, Lieferkosten und Zeitfenster.",
+    "es": "Comprueba tamaño, coste y horario.",
+    "fr": "Vérifiez taille, coût et créneau.",
+    "ru": "Проверьте размер, стоимость и интервал доставки."
+  }
+}

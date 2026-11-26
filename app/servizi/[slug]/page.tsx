@@ -1,3 +1,5 @@
+import LandingPage,{landingMetadata} from "@/components/LandingPage";
+import {topics,getTopic} from "@/data/landing-topics";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,11 +10,13 @@ import { faqByLocale } from "@/lib/seo-content";
 import { SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
-  return seoLandingPages.map((page) => ({ slug: page.slug }));
+  return [...new Set([...seoLandingPages.map(p=>p.slug),...topics.map(p=>p.slug)])].map(slug=>({slug}));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const topic=getTopic(slug);
+  if(topic) return landingMetadata(topic,"it");
   const page = getSeoLandingPage(slug);
   if (!page) return { robots: { index: false, follow: false } };
   return {
@@ -31,6 +35,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function SeoServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const topic=getTopic(slug);
+  if(topic) return <LandingPage topic={topic} locale="it"/>;
   const page = getSeoLandingPage(slug);
   if (!page) notFound();
   const faq = [...page.faq, ...faqByLocale.it.filter(item=>!page.faq.some(existing=>existing.q===item.q))];

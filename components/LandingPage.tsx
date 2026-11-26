@@ -1,0 +1,27 @@
+import type {Metadata} from "next";
+import Link from "next/link";
+import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import DeliveryCheck from "@/components/DeliveryCheck";
+import {topics,type Topic} from "@/data/landing-topics";
+import {landingAdvice} from "@/data/landing-advice";
+import {landingCopy} from "@/lib/landing-copy";
+import {products} from "@/data/products";
+import {formatEur,getSizePrices} from "@/data/pricing";
+import {languageAlternates,withLocale,ui,type Locale} from "@/lib/i18n";
+import {SITE_URL} from "@/lib/site";
+export function landingMetadata(topic:Topic,locale:Locale):Metadata{
+ const t=landingCopy[locale],path="/servizi/"+topic.slug,canonical=withLocale(path,locale);
+ const title=(topic.titles[locale]+" · "+t[4]).slice(0,60),description=(topic.titles[locale]+". "+t[19]+". WhatsApp +39 379 371 8598").slice(0,155);
+ return {title:{absolute:title},description,alternates:{canonical,languages:languageAlternates(path)},openGraph:{title,description,url:canonical,images:[{url:"/images/hero-home.webp"}]}};
+}
+export default function LandingPage({topic,locale}:{topic:Topic;locale:Locale}){
+ const t=landingCopy[locale],l=(path:string)=>withLocale(path,locale),title=topic.titles[locale]+" · "+t[4];
+ const content=landingAdvice[topic.slug][locale];
+ const faq=content.faq;
+ const schema={"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:t[4],item:SITE_URL+l("/")},{"@type":"ListItem",position:2,name:title,item:SITE_URL+l("/servizi/"+topic.slug)}]},{"@type":"FAQPage",mainEntity:faq.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:f.a}}))}]};
+ const selections:Record<string,string[]>={anniversario:["rose-rosse-premium","bouquet-anniversario","bouquet-san-valentino"],compleanno:["bouquet-compleanno-felice","bouquet-festa","bouquet-auguri"],condoglianze:["bouquet-bianco","bouquet-eleganza-bianca","bouquet-delicato"],"mamma-donna":["bouquet-mamma","bouquet-festa-della-donna","bouquet-primavera"],"scusa-grazie":["bouquet-grazie","bouquet-delicato","bouquet-dolce-sorpresa"],matrimonio:["bouquet-bianco","bouquet-eleganza","bouquet-rosa-cipria"],laurea:["bouquet-congratulazioni","bouquet-festa","bouquet-colorato"],nascita:["bouquet-delicato","bouquet-sogno-rosa","bouquet-bianco"]};
+ const items=selections[topic.slug]?products.filter(p=>selections[topic.slug].includes(p.slug)):products.slice(0,4);
+ return <main><Header/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,"\\u003c")}}/><article className="mx-auto max-w-6xl space-y-10 px-6 py-12"><nav><Link href={l("/")}>{t[4]}</Link> / {topic.titles[locale]}</nav><header><p className="text-sm uppercase tracking-wider">{t[topic.group]}</p><h1 className="mt-4 text-4xl font-bold">{title}</h1>{topic.detail&&<p className="mt-3 text-xl">{topic.detail}</p>}<p className="mt-4 text-lg">{content.intro}</p><a className="mt-4 inline-block rounded-full bg-black px-6 py-3 text-white" href="https://wa.me/393793718598">{t[15]}</a></header><DeliveryCheck locale={locale}/><section className="space-y-5 leading-8"><h2 className="text-2xl font-bold">{content.checklistHeading}</h2><ul className="list-disc space-y-3 pl-6">{content.checklist.map(item=><li key={item.heading}><h3 className="inline font-semibold">{item.heading}: </h3>{item.text}</li>)}</ul></section><section className="space-y-8 leading-8">{content.sections.map(section=><section key={section.heading}><h2 className="mb-3 text-2xl font-bold">{section.heading}</h2><p>{section.text}</p></section>)}</section><section><h2 className="text-2xl font-bold">{ui[locale].bouquet}</h2><div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{items.map(p=><article key={p.slug} className="rounded-xl border p-4"><Image src={p.image} alt={p.name} width={500} height={500} className="aspect-square object-cover"/><h3 className="mt-3 font-bold">{p.name}</h3><p>{formatEur(getSizePrices(p.price).Piccolo)}</p><Link className="mt-3 block underline" href={l("/prodotti/"+p.slug)}>{ui[locale].order}</Link></article>)}</div></section><section><h2 className="text-2xl font-bold">{t[14]}</h2>{faq.map(f=><details key={f.q} className="border-b py-4"><summary className="font-semibold">{f.q}</summary><p className="mt-3">{f.a}</p></details>)}</section><section aria-label={locale==="it"?"Fonti istituzionali":locale==="en"?"Official references":locale==="de"?"Offizielle Quellen":locale==="es"?"Fuentes oficiales":locale==="fr"?"Sources officielles":"Официальные источники"}><h2 className="text-xl font-bold">{locale==="it"?"Fonti istituzionali":locale==="en"?"Official references":locale==="de"?"Offizielle Quellen":locale==="es"?"Fuentes oficiales":locale==="fr"?"Sources officielles":"Официальные источники"}</h2><ul className="mt-3 list-disc space-y-2 pl-6">{content.sources.map(source=><li key={source.url}><a href={source.url} className="underline" target="_blank" rel="noopener noreferrer">{source.label}</a></li>)}</ul></section><section><h2 className="text-2xl font-bold">{t[13]}</h2><div className="mt-3 grid gap-3 sm:grid-cols-2">{topics.filter(x=>x.group===topic.group&&x.slug!==topic.slug).slice(0,6).map(x=><Link key={x.slug} className="underline" href={l("/servizi/"+x.slug)}>{x.titles[locale]}</Link>)}</div></section>{topic.slug==="recensioni-clienti"&&<Link href={l("/recensioni")}>{topic.titles[locale]}</Link>}</article><Footer/></main>
+}

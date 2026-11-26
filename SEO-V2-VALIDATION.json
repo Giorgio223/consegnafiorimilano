@@ -1,0 +1,1020 @@
+{
+  "pages": 192,
+  "faq_count": 768,
+  "distinct_questions": 768,
+  "distinct_answers": 768,
+  "distinct_article_hashes": 192,
+  "min_words": 455,
+  "max_words": 549,
+  "topic_specific_words_min": 70,
+  "topic_specific_words_max": 125,
+  "per_locale": {
+    "it": {
+      "pages": 32,
+      "min_words": 511,
+      "max_words": 541
+    },
+    "en": {
+      "pages": 32,
+      "min_words": 522,
+      "max_words": 549
+    },
+    "de": {
+      "pages": 32,
+      "min_words": 472,
+      "max_words": 506
+    },
+    "es": {
+      "pages": 32,
+      "min_words": 494,
+      "max_words": 517
+    },
+    "fr": {
+      "pages": 32,
+      "min_words": 508,
+      "max_words": 539
+    },
+    "ru": {
+      "pages": 32,
+      "min_words": 455,
+      "max_words": 520
+    }
+  },
+  "syntax": "TypeScript AST parse: 74 files; 193 project-local imports checked; 0 errors",
+  "build": "not run (requested)",
+  "word_counts": [
+    {
+      "slug": "consegna-fiori-in-giornata-milano",
+      "locale": "it",
+      "words": 530
+    },
+    {
+      "slug": "consegna-fiori-in-giornata-milano",
+      "locale": "en",
+      "words": 543
+    },
+    {
+      "slug": "consegna-fiori-in-giornata-milano",
+      "locale": "de",
+      "words": 482
+    },
+    {
+      "slug": "consegna-fiori-in-giornata-milano",
+      "locale": "es",
+      "words": 504
+    },
+    {
+      "slug": "consegna-fiori-in-giornata-milano",
+      "locale": "fr",
+      "words": 521
+    },
+    {
+      "slug": "consegna-fiori-in-giornata-milano",
+      "locale": "ru",
+      "words": 494
+    },
+    {
+      "slug": "consegna-fiori-2-ore",
+      "locale": "it",
+      "words": 521
+    },
+    {
+      "slug": "consegna-fiori-2-ore",
+      "locale": "en",
+      "words": 529
+    },
+    {
+      "slug": "consegna-fiori-2-ore",
+      "locale": "de",
+      "words": 472
+    },
+    {
+      "slug": "consegna-fiori-2-ore",
+      "locale": "es",
+      "words": 499
+    },
+    {
+      "slug": "consegna-fiori-2-ore",
+      "locale": "fr",
+      "words": 515
+    },
+    {
+      "slug": "consegna-fiori-2-ore",
+      "locale": "ru",
+      "words": 505
+    },
+    {
+      "slug": "domenica-festivi",
+      "locale": "it",
+      "words": 515
+    },
+    {
+      "slug": "domenica-festivi",
+      "locale": "en",
+      "words": 523
+    },
+    {
+      "slug": "domenica-festivi",
+      "locale": "de",
+      "words": 473
+    },
+    {
+      "slug": "domenica-festivi",
+      "locale": "es",
+      "words": 494
+    },
+    {
+      "slug": "domenica-festivi",
+      "locale": "fr",
+      "words": 513
+    },
+    {
+      "slug": "domenica-festivi",
+      "locale": "ru",
+      "words": 491
+    },
+    {
+      "slug": "consegna-anonima",
+      "locale": "it",
+      "words": 516
+    },
+    {
+      "slug": "consegna-anonima",
+      "locale": "en",
+      "words": 532
+    },
+    {
+      "slug": "consegna-anonima",
+      "locale": "de",
+      "words": 487
+    },
+    {
+      "slug": "consegna-anonima",
+      "locale": "es",
+      "words": 497
+    },
+    {
+      "slug": "consegna-anonima",
+      "locale": "fr",
+      "words": 508
+    },
+    {
+      "slug": "consegna-anonima",
+      "locale": "ru",
+      "words": 501
+    },
+    {
+      "slug": "hotel-ristoranti",
+      "locale": "it",
+      "words": 523
+    },
+    {
+      "slug": "hotel-ristoranti",
+      "locale": "en",
+      "words": 534
+    },
+    {
+      "slug": "hotel-ristoranti",
+      "locale": "de",
+      "words": 484
+    },
+    {
+      "slug": "hotel-ristoranti",
+      "locale": "es",
+      "words": 505
+    },
+    {
+      "slug": "hotel-ristoranti",
+      "locale": "fr",
+      "words": 532
+    },
+    {
+      "slug": "hotel-ristoranti",
+      "locale": "ru",
+      "words": 503
+    },
+    {
+      "slug": "uffici-aziende",
+      "locale": "it",
+      "words": 518
+    },
+    {
+      "slug": "uffici-aziende",
+      "locale": "en",
+      "words": 529
+    },
+    {
+      "slug": "uffici-aziende",
+      "locale": "de",
+      "words": 487
+    },
+    {
+      "slug": "uffici-aziende",
+      "locale": "es",
+      "words": 499
+    },
+    {
+      "slug": "uffici-aziende",
+      "locale": "fr",
+      "words": 518
+    },
+    {
+      "slug": "uffici-aziende",
+      "locale": "ru",
+      "words": 503
+    },
+    {
+      "slug": "abbonamento-fiori",
+      "locale": "it",
+      "words": 517
+    },
+    {
+      "slug": "abbonamento-fiori",
+      "locale": "en",
+      "words": 532
+    },
+    {
+      "slug": "abbonamento-fiori",
+      "locale": "de",
+      "words": 483
+    },
+    {
+      "slug": "abbonamento-fiori",
+      "locale": "es",
+      "words": 499
+    },
+    {
+      "slug": "abbonamento-fiori",
+      "locale": "fr",
+      "words": 523
+    },
+    {
+      "slug": "abbonamento-fiori",
+      "locale": "ru",
+      "words": 497
+    },
+    {
+      "slug": "ordinare-estero",
+      "locale": "it",
+      "words": 527
+    },
+    {
+      "slug": "ordinare-estero",
+      "locale": "en",
+      "words": 533
+    },
+    {
+      "slug": "ordinare-estero",
+      "locale": "de",
+      "words": 484
+    },
+    {
+      "slug": "ordinare-estero",
+      "locale": "es",
+      "words": 505
+    },
+    {
+      "slug": "ordinare-estero",
+      "locale": "fr",
+      "words": 519
+    },
+    {
+      "slug": "ordinare-estero",
+      "locale": "ru",
+      "words": 507
+    },
+    {
+      "slug": "duomo-centro",
+      "locale": "it",
+      "words": 522
+    },
+    {
+      "slug": "duomo-centro",
+      "locale": "en",
+      "words": 533
+    },
+    {
+      "slug": "duomo-centro",
+      "locale": "de",
+      "words": 482
+    },
+    {
+      "slug": "duomo-centro",
+      "locale": "es",
+      "words": 504
+    },
+    {
+      "slug": "duomo-centro",
+      "locale": "fr",
+      "words": 525
+    },
+    {
+      "slug": "duomo-centro",
+      "locale": "ru",
+      "words": 510
+    },
+    {
+      "slug": "brera-moscova",
+      "locale": "it",
+      "words": 519
+    },
+    {
+      "slug": "brera-moscova",
+      "locale": "en",
+      "words": 522
+    },
+    {
+      "slug": "brera-moscova",
+      "locale": "de",
+      "words": 475
+    },
+    {
+      "slug": "brera-moscova",
+      "locale": "es",
+      "words": 498
+    },
+    {
+      "slug": "brera-moscova",
+      "locale": "fr",
+      "words": 510
+    },
+    {
+      "slug": "brera-moscova",
+      "locale": "ru",
+      "words": 502
+    },
+    {
+      "slug": "porta-nuova-isola",
+      "locale": "it",
+      "words": 515
+    },
+    {
+      "slug": "porta-nuova-isola",
+      "locale": "en",
+      "words": 531
+    },
+    {
+      "slug": "porta-nuova-isola",
+      "locale": "de",
+      "words": 483
+    },
+    {
+      "slug": "porta-nuova-isola",
+      "locale": "es",
+      "words": 506
+    },
+    {
+      "slug": "porta-nuova-isola",
+      "locale": "fr",
+      "words": 523
+    },
+    {
+      "slug": "porta-nuova-isola",
+      "locale": "ru",
+      "words": 506
+    },
+    {
+      "slug": "navigli-ticinese",
+      "locale": "it",
+      "words": 511
+    },
+    {
+      "slug": "navigli-ticinese",
+      "locale": "en",
+      "words": 526
+    },
+    {
+      "slug": "navigli-ticinese",
+      "locale": "de",
+      "words": 479
+    },
+    {
+      "slug": "navigli-ticinese",
+      "locale": "es",
+      "words": 496
+    },
+    {
+      "slug": "navigli-ticinese",
+      "locale": "fr",
+      "words": 518
+    },
+    {
+      "slug": "navigli-ticinese",
+      "locale": "ru",
+      "words": 496
+    },
+    {
+      "slug": "citylife-fiera",
+      "locale": "it",
+      "words": 515
+    },
+    {
+      "slug": "citylife-fiera",
+      "locale": "en",
+      "words": 528
+    },
+    {
+      "slug": "citylife-fiera",
+      "locale": "de",
+      "words": 477
+    },
+    {
+      "slug": "citylife-fiera",
+      "locale": "es",
+      "words": 494
+    },
+    {
+      "slug": "citylife-fiera",
+      "locale": "fr",
+      "words": 510
+    },
+    {
+      "slug": "citylife-fiera",
+      "locale": "ru",
+      "words": 501
+    },
+    {
+      "slug": "porta-romana-corvetto",
+      "locale": "it",
+      "words": 531
+    },
+    {
+      "slug": "porta-romana-corvetto",
+      "locale": "en",
+      "words": 539
+    },
+    {
+      "slug": "porta-romana-corvetto",
+      "locale": "de",
+      "words": 480
+    },
+    {
+      "slug": "porta-romana-corvetto",
+      "locale": "es",
+      "words": 511
+    },
+    {
+      "slug": "porta-romana-corvetto",
+      "locale": "fr",
+      "words": 525
+    },
+    {
+      "slug": "porta-romana-corvetto",
+      "locale": "ru",
+      "words": 510
+    },
+    {
+      "slug": "porta-venezia",
+      "locale": "it",
+      "words": 523
+    },
+    {
+      "slug": "porta-venezia",
+      "locale": "en",
+      "words": 540
+    },
+    {
+      "slug": "porta-venezia",
+      "locale": "de",
+      "words": 480
+    },
+    {
+      "slug": "porta-venezia",
+      "locale": "es",
+      "words": 503
+    },
+    {
+      "slug": "porta-venezia",
+      "locale": "fr",
+      "words": 525
+    },
+    {
+      "slug": "porta-venezia",
+      "locale": "ru",
+      "words": 508
+    },
+    {
+      "slug": "san-siro-wagner",
+      "locale": "it",
+      "words": 521
+    },
+    {
+      "slug": "san-siro-wagner",
+      "locale": "en",
+      "words": 533
+    },
+    {
+      "slug": "san-siro-wagner",
+      "locale": "de",
+      "words": 481
+    },
+    {
+      "slug": "san-siro-wagner",
+      "locale": "es",
+      "words": 506
+    },
+    {
+      "slug": "san-siro-wagner",
+      "locale": "fr",
+      "words": 524
+    },
+    {
+      "slug": "san-siro-wagner",
+      "locale": "ru",
+      "words": 502
+    },
+    {
+      "slug": "laurea",
+      "locale": "it",
+      "words": 531
+    },
+    {
+      "slug": "laurea",
+      "locale": "en",
+      "words": 542
+    },
+    {
+      "slug": "laurea",
+      "locale": "de",
+      "words": 499
+    },
+    {
+      "slug": "laurea",
+      "locale": "es",
+      "words": 516
+    },
+    {
+      "slug": "laurea",
+      "locale": "fr",
+      "words": 536
+    },
+    {
+      "slug": "laurea",
+      "locale": "ru",
+      "words": 504
+    },
+    {
+      "slug": "nascita",
+      "locale": "it",
+      "words": 537
+    },
+    {
+      "slug": "nascita",
+      "locale": "en",
+      "words": 544
+    },
+    {
+      "slug": "nascita",
+      "locale": "de",
+      "words": 497
+    },
+    {
+      "slug": "nascita",
+      "locale": "es",
+      "words": 517
+    },
+    {
+      "slug": "nascita",
+      "locale": "fr",
+      "words": 539
+    },
+    {
+      "slug": "nascita",
+      "locale": "ru",
+      "words": 512
+    },
+    {
+      "slug": "compleanno",
+      "locale": "it",
+      "words": 535
+    },
+    {
+      "slug": "compleanno",
+      "locale": "en",
+      "words": 547
+    },
+    {
+      "slug": "compleanno",
+      "locale": "de",
+      "words": 492
+    },
+    {
+      "slug": "compleanno",
+      "locale": "es",
+      "words": 515
+    },
+    {
+      "slug": "compleanno",
+      "locale": "fr",
+      "words": 529
+    },
+    {
+      "slug": "compleanno",
+      "locale": "ru",
+      "words": 515
+    },
+    {
+      "slug": "anniversario",
+      "locale": "it",
+      "words": 537
+    },
+    {
+      "slug": "anniversario",
+      "locale": "en",
+      "words": 539
+    },
+    {
+      "slug": "anniversario",
+      "locale": "de",
+      "words": 489
+    },
+    {
+      "slug": "anniversario",
+      "locale": "es",
+      "words": 513
+    },
+    {
+      "slug": "anniversario",
+      "locale": "fr",
+      "words": 527
+    },
+    {
+      "slug": "anniversario",
+      "locale": "ru",
+      "words": 507
+    },
+    {
+      "slug": "matrimonio",
+      "locale": "it",
+      "words": 532
+    },
+    {
+      "slug": "matrimonio",
+      "locale": "en",
+      "words": 543
+    },
+    {
+      "slug": "matrimonio",
+      "locale": "de",
+      "words": 489
+    },
+    {
+      "slug": "matrimonio",
+      "locale": "es",
+      "words": 513
+    },
+    {
+      "slug": "matrimonio",
+      "locale": "fr",
+      "words": 532
+    },
+    {
+      "slug": "matrimonio",
+      "locale": "ru",
+      "words": 510
+    },
+    {
+      "slug": "condoglianze",
+      "locale": "it",
+      "words": 526
+    },
+    {
+      "slug": "condoglianze",
+      "locale": "en",
+      "words": 542
+    },
+    {
+      "slug": "condoglianze",
+      "locale": "de",
+      "words": 497
+    },
+    {
+      "slug": "condoglianze",
+      "locale": "es",
+      "words": 506
+    },
+    {
+      "slug": "condoglianze",
+      "locale": "fr",
+      "words": 525
+    },
+    {
+      "slug": "condoglianze",
+      "locale": "ru",
+      "words": 511
+    },
+    {
+      "slug": "mamma-donna",
+      "locale": "it",
+      "words": 518
+    },
+    {
+      "slug": "mamma-donna",
+      "locale": "en",
+      "words": 530
+    },
+    {
+      "slug": "mamma-donna",
+      "locale": "de",
+      "words": 485
+    },
+    {
+      "slug": "mamma-donna",
+      "locale": "es",
+      "words": 504
+    },
+    {
+      "slug": "mamma-donna",
+      "locale": "fr",
+      "words": 523
+    },
+    {
+      "slug": "mamma-donna",
+      "locale": "ru",
+      "words": 510
+    },
+    {
+      "slug": "scusa-grazie",
+      "locale": "it",
+      "words": 518
+    },
+    {
+      "slug": "scusa-grazie",
+      "locale": "en",
+      "words": 534
+    },
+    {
+      "slug": "scusa-grazie",
+      "locale": "de",
+      "words": 486
+    },
+    {
+      "slug": "scusa-grazie",
+      "locale": "es",
+      "words": 499
+    },
+    {
+      "slug": "scusa-grazie",
+      "locale": "fr",
+      "words": 518
+    },
+    {
+      "slug": "scusa-grazie",
+      "locale": "ru",
+      "words": 504
+    },
+    {
+      "slug": "provenienza",
+      "locale": "it",
+      "words": 537
+    },
+    {
+      "slug": "provenienza",
+      "locale": "en",
+      "words": 549
+    },
+    {
+      "slug": "provenienza",
+      "locale": "de",
+      "words": 491
+    },
+    {
+      "slug": "provenienza",
+      "locale": "es",
+      "words": 515
+    },
+    {
+      "slug": "provenienza",
+      "locale": "fr",
+      "words": 532
+    },
+    {
+      "slug": "provenienza",
+      "locale": "ru",
+      "words": 520
+    },
+    {
+      "slug": "mercato-fiori",
+      "locale": "it",
+      "words": 541
+    },
+    {
+      "slug": "mercato-fiori",
+      "locale": "en",
+      "words": 549
+    },
+    {
+      "slug": "mercato-fiori",
+      "locale": "de",
+      "words": 502
+    },
+    {
+      "slug": "mercato-fiori",
+      "locale": "es",
+      "words": 515
+    },
+    {
+      "slug": "mercato-fiori",
+      "locale": "fr",
+      "words": 532
+    },
+    {
+      "slug": "mercato-fiori",
+      "locale": "ru",
+      "words": 519
+    },
+    {
+      "slug": "filiera-sostenibile",
+      "locale": "it",
+      "words": 534
+    },
+    {
+      "slug": "filiera-sostenibile",
+      "locale": "en",
+      "words": 547
+    },
+    {
+      "slug": "filiera-sostenibile",
+      "locale": "de",
+      "words": 487
+    },
+    {
+      "slug": "filiera-sostenibile",
+      "locale": "es",
+      "words": 511
+    },
+    {
+      "slug": "filiera-sostenibile",
+      "locale": "fr",
+      "words": 535
+    },
+    {
+      "slug": "filiera-sostenibile",
+      "locale": "ru",
+      "words": 455
+    },
+    {
+      "slug": "cura-fiori",
+      "locale": "it",
+      "words": 538
+    },
+    {
+      "slug": "cura-fiori",
+      "locale": "en",
+      "words": 545
+    },
+    {
+      "slug": "cura-fiori",
+      "locale": "de",
+      "words": 506
+    },
+    {
+      "slug": "cura-fiori",
+      "locale": "es",
+      "words": 512
+    },
+    {
+      "slug": "cura-fiori",
+      "locale": "fr",
+      "words": 534
+    },
+    {
+      "slug": "cura-fiori",
+      "locale": "ru",
+      "words": 514
+    },
+    {
+      "slug": "significato-fiori",
+      "locale": "it",
+      "words": 520
+    },
+    {
+      "slug": "significato-fiori",
+      "locale": "en",
+      "words": 531
+    },
+    {
+      "slug": "significato-fiori",
+      "locale": "de",
+      "words": 487
+    },
+    {
+      "slug": "significato-fiori",
+      "locale": "es",
+      "words": 508
+    },
+    {
+      "slug": "significato-fiori",
+      "locale": "fr",
+      "words": 522
+    },
+    {
+      "slug": "significato-fiori",
+      "locale": "ru",
+      "words": 510
+    },
+    {
+      "slug": "consegna-fiori-provincia-milano",
+      "locale": "it",
+      "words": 533
+    },
+    {
+      "slug": "consegna-fiori-provincia-milano",
+      "locale": "en",
+      "words": 546
+    },
+    {
+      "slug": "consegna-fiori-provincia-milano",
+      "locale": "de",
+      "words": 495
+    },
+    {
+      "slug": "consegna-fiori-provincia-milano",
+      "locale": "es",
+      "words": 516
+    },
+    {
+      "slug": "consegna-fiori-provincia-milano",
+      "locale": "fr",
+      "words": 538
+    },
+    {
+      "slug": "consegna-fiori-provincia-milano",
+      "locale": "ru",
+      "words": 515
+    },
+    {
+      "slug": "recensioni-clienti",
+      "locale": "it",
+      "words": 533
+    },
+    {
+      "slug": "recensioni-clienti",
+      "locale": "en",
+      "words": 542
+    },
+    {
+      "slug": "recensioni-clienti",
+      "locale": "de",
+      "words": 487
+    },
+    {
+      "slug": "recensioni-clienti",
+      "locale": "es",
+      "words": 503
+    },
+    {
+      "slug": "recensioni-clienti",
+      "locale": "fr",
+      "words": 529
+    },
+    {
+      "slug": "recensioni-clienti",
+      "locale": "ru",
+      "words": 512
+    },
+    {
+      "slug": "faq-consegna",
+      "locale": "it",
+      "words": 533
+    },
+    {
+      "slug": "faq-consegna",
+      "locale": "en",
+      "words": 528
+    },
+    {
+      "slug": "faq-consegna",
+      "locale": "de",
+      "words": 493
+    },
+    {
+      "slug": "faq-consegna",
+      "locale": "es",
+      "words": 508
+    },
+    {
+      "slug": "faq-consegna",
+      "locale": "fr",
+      "words": 532
+    },
+    {
+      "slug": "faq-consegna",
+      "locale": "ru",
+      "words": 518
+    }
+  ],
+  "original_files_unchanged": 219,
+  "original_files_changed": [
+    "components/LandingPage.tsx",
+    "data/landing-advice.ts",
+    "data/landing-topics.ts"
+  ],
+  "original_files_missing": [],
+  "excluded_directories": [
+    ".git",
+    ".next",
+    "__pycache__",
+    "node_modules"
+  ]
+}

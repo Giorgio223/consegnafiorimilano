@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import {getTopic} from "@/data/landing-topics";
 import { trustText } from "@/lib/seo-content";
 import { localeFromPath, stripLocale, locales, ui, withLocale, type Locale } from "@/lib/i18n";
 
@@ -20,8 +21,8 @@ export default function Header({ overrideLocale }: { overrideLocale?: Locale } =
   const local = (path: string) => withLocale(path, locale);
   const switchLanguage = (target: Locale) => {
     const clean = stripLocale(pathname);
-    const unsupported = ["/servizi/", "/tracking/", "/checkout", "/admin", "/api", "/zone-consegna", "/politica-resi", "/privacy-policy"].some((prefix) => clean.startsWith(prefix));
-    if (unsupported && target !== "it") return `/${target}`;
+    const unsupported = ["/tracking/", "/checkout", "/admin", "/api", "/zone-consegna", "/politica-resi", "/privacy-policy", "/return-policy"].some((prefix) => clean.startsWith(prefix));
+    if ((unsupported || (clean.startsWith("/servizi/") && !getTopic(clean.split("/")[2]))) && target !== "it") return `/${target}`;
     return withLocale(pathname, target);
   };
 
